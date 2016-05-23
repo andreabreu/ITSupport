@@ -1,0 +1,117 @@
+﻿@model ITSupport.Web.Models.UserInformation
+
+@{
+    ViewBag.Title = "Reset";
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+<row>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Redefinir senha de usuário
+                </h3>
+            </div>
+            <div class="panel-body">
+                @if (IsPost)
+            {
+
+                  
+                    <div class="well">
+                        <address>
+                            <p class="text-center"><strong>André Camilo de Abreu</strong></p>
+                            <table class="table">
+                                <tr>
+                                    <td class="tg-yw4l"><span class="glyphicon glyphicon-user"></span> andre_abreu_trp<br /></td>
+                                    <td class="tg-yw4l"><span class="glyphicon glyphicon-briefcase"></span> Terceiro<br /></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-yw4l"><span class="glyphicon glyphicon-phone-alt"></span> 114477<br /></td>
+                                    <td class="tg-yw4l"><span class="glyphicon glyphicon-user" style="color:red"></span>@Html.ActionLink("Eduardo Lopes Ferreira","Busca","Account", null, new { @target = "_blank" }) <br /></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td class="tg-yw4l"><span class="glyphicon glyphicon-envelope"></span> andreabreu.trp@aon.com<br /></td>
+                                    <td class="tg-yw4l"><span class="glyphicon glyphicon-tower"></span> 93666 - Informática TI<br /></td>
+
+                                </tr>
+                            </table>
+                        </address>
+                        <form class="form-horizontal">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Nova senha" aria-label="...">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Redefinir Senha</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+
+
+                    </div>
+                }
+                else
+                {
+                    using (Html.BeginForm("Reset", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                    <!-- Select Basica -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="dominio">Dominio</label>
+                            <div class="col-md-4">
+                                <select id="dominio" name="dominio" class="form-control">
+                                    <option value="br.aon.bz">br.aon.bz</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    <!-- Search input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Usuario">Usuário</label>
+                            <div class="col-md-4">
+                                @* <input id="query" name="query" placeholder="query" class="form-control input-md" required="">*@
+                                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.username) } })
+                                @*<input class="form-control" name="username" id="username" placeholder="Usuário" type="text" required>*@
+                            </div>
+                        </div>
+
+                    <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Buscar"></label>
+                            <div class="col-md-12">
+                                <button id="Buscar" name="Buscar" class="btn btn-default">Buscar</button>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+
+
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+
+
+    </div>
+</row>
+
+
+@if (IsPost == false)
+{
+    <script type="text/javascript">
+
+        $('#username').typeahead({
+            limit: 3,
+            local: [@foreach (var item in ViewBag.Users){<text>@Html.Raw(@item)</text>} 'a']
+        });
+
+        $('.tt-query').css('background-color', '#fff');
+
+    </script>
+}
+
+

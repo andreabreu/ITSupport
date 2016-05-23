@@ -1,0 +1,257 @@
+﻿@model ITSupport.Lib.Computador
+
+
+@{
+    ViewBag.Title = "Equipamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 class="text-center">Cadastro de novo Equipamento</h2>
+
+@if (ViewBag.Computador != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Sucesso!</strong> @ViewBag.Computador cadastrado cm sucesso! <a href="#" class="alert-link">Clique aqui</a> para ver seu inventário.
+    </div>
+}
+
+
+<div class="panel panel-default">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true);
+        <div class="row col-lg-12 ">
+            <h2 class="text-center"><small>Informações  de Hardware</small></h2>
+            <hr />
+
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="selectbasic">
+                    @Html.LabelFor(Model => Model.Tipo)
+                </label>
+                <div class="col-md-4">
+                    <select id="Tipo" name="Tipo" class="form-control">
+                        <option value="Desktop">Desktop</option>
+                        <option value="Notebook">Notebook</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="Processador">Processador</label>
+                <div class="col-md-6">
+                    <select id="Processador" name="Processador" class="form-control">
+
+                        <option value="Intel Celeron">Intel Celeron</option>
+                        <option value="Intel Core i3">Intel Core i3</option>
+                        <option value="Intel Core i5">Intel Core i5</option>
+                        <option value="Intel Core i7">Intel Core i7</option>
+                        <option value="Intel Dual Core">Intel Dual Core</option>
+                        <option value="Intel Pentium">Intel Pentium</option>
+                        <option value="Intel Pentium Dual-Core">Intel Pentium Dual-Core</option>
+                        <option value="Intel Xeon">Intel Xeon</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="Fornecedor">Fornecedor</label>
+                <div class="col-md-4">
+                    <select id="Fornecedor" name="Fornecedor" class="form-control">
+                        <option value="Dell Inc.">Dell Inc.</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="Hewlett Packard">Hewlett Packard</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="HardDrive">Hard Drive</label>
+                <div class="col-md-4">
+                    <select id="HardDrive" name="HardDrive" class="form-control">
+                        <option value="80 GB">80 GB</option>
+                        <option value="160 GB">160 GB</option>
+                        <option value="320 GB">320 GB</option>
+                        <option value="500 GB">500 GB</option>
+                        <option value="750 GB">750 GB</option>
+                        <option value="1 TB">1 TB</option>
+                        <option value="2 GB">2 GB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="Modelo">Modelo</label>
+                <div class="col-md-4">
+                    <select id="Modelo" name="Modelo" class="form-control">
+                        <optgroup label="Hewlett Packard">
+                            @foreach (var item in ViewBag.ListaModeloHP)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </optgroup>
+                        <optgroup label="Dell Inc.">
+                            @foreach (var item in ViewBag.ListaModeloDell)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </optgroup>
+                        <optgroup label="Lenovo">
+                            @foreach (var item in ViewBag.ListaModeloLenovo)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </optgroup>
+                    </select>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="Memoria">Memória</label>
+                <div class="col-md-4">
+                    <select id="Memoria" name="Memoria" class="form-control">
+                        <option value="2 GB">2 GB</option>
+                        <option value="4 GB">4 GB</option>
+                        <option value="6 GB">6 GB</option>
+                        <option value="8 GB">8 GB</option>
+                        <option value="12 GB">12 GB</option>
+                        <option value="16 GB">16 GB</option>
+                        <option value="32 GB">32 GB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="servicetag">@Html.LabelFor(model => model.servicetag)</label>
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.servicetag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.servicetag) } })
+                    <div class="help-block">@Html.ValidationMessageFor(Model => Model.servicetag) </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="hostname">Hostname</label>
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.hostname, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.hostname) } })
+                    @*<input id="hostname" name="hostname" type="text" placeholder="Hostname" class="form-control input-md"" required="">*@
+                    <div class="help-block">@Html.ValidationMessageFor(Model => Model.hostname) </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <h2 class="text-center"><small>Informações  de Alocação</small></h2>
+        <hr />
+
+        <div class="row col-lg-12">
+
+            <!-- Select Basic -->
+            <div class="col-md-6 form-group" id="Localidade">
+                <label class="col-md-4 control-label">Localidade</label>
+                <div class="col-md-4">
+                    <select id="Localidade" name="Localidade" class="form-control">
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Campinas">Campinas</option>
+                        <option value="Curitiba">Curitiba</option>
+                        <option value="Porto Alegre">Porto Alegre</option>
+                        <option value="Ribeirão Preto">Ribeirão Preto</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="Salvador">Salvador</option>
+                        <option value="Vitória">Vitória</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6  form-group">
+                <label class="col-md-4 control-label" for="ccusto">Centro de Custo</label>
+                <div class="col-md-6">
+                    <select id="ccusto" name="ccusto" class="form-control">
+                        @foreach (var item in ViewBag.ListaCentroCusto)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <!-- Prepended checkbox -->
+            <!-- Select Basic -->
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="status">Status</label>
+                <div class="col-md-4">
+                    <select id="status" name="status" class="form-control">
+                        <option value="Em Uso">Em Uso</option>
+                        <option value="Em Estoque">Em Estoque</option>
+                        <option value="Em Reparo">Em Reparo</option>
+                        <option value="Depreciado">Depreciado</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="col-md-6 form-group">
+                <label class="col-md-4 control-label" for="ativo">Ativo</label>
+                <div class="col-md-4">
+                    <input id="ativo" name="ativo" type="text" placeholder="Patrimônio" class="form-control input-md" required="">
+
+                </div>
+            </div>
+
+            <!-- Multiple Checkboxes -->
+
+        </div>
+        <div class="row col-lg-12">
+            <hr />
+            <!-- Multiple Checkboxes -->
+
+            <div class="col-md-6 form-group">
+                <div class="col-md-6">
+                    <div class="checkbox">
+                        <label for="acoes-0">
+                            <input type="checkbox" name="aAD" id="aAD" value="True">
+                            Criar Objeto no Active Diretory
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="acoes-1">
+                            <input type="checkbox" name="aControladoria" id="aControladoria" value="True">
+                            Informar Controladoria
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="col-md-6 form-group">
+                <div class="col-md-8">
+                    <button id="button1id" name="button1id" class="btn btn-success">Cadastrar</button>
+                    @Html.ActionLink("Cancelar", "Index", "Home", null, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+
+
+</div>
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

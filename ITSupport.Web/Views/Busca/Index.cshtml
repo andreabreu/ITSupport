@@ -1,0 +1,65 @@
+﻿@model  IEnumerable<ITSupport.Web.Models.SearchInformation>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+<row>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="row col-md-12">
+                <div class="col-md-6 col-md-offset-3">
+                    <hgroup class="">
+                        <h2>Resultados da Busca</h2>
+                        <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">@ViewData["Parametro"]</strong></h2>
+                    </hgroup>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="col-md-12">
+                <article class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-default">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Nome</th>
+                                        
+                                    </tr>
+                                </thead>
+                               <tbody>
+                                   @foreach (var item in Model)
+                                   {
+                                    <tr>
+                                        <th scope="row">@Html.Raw(item.tipo)</th>
+                                        <td colspan="2" width="95%">@Html.Raw(item.descricao)</td>
+                                    </tr>
+                                   }
+                                  
+                                   <tr>
+                                       <th scope="row"><span class="glyphicon glyphicon-hdd"></span></th>
+                                       <td colspan="2" width="95%">BRSP23400234212 - Dell Optiplex 3020</td>
+                                   </tr>
+                                   <tr>
+                                       <th scope="row"><span class="glyphicon glyphicon-hdd"></span></th>
+                                       <td colspan="2" width="95%">BRSP23400234212 - Dell Optiplex 3020</td>
+                                   </tr>
+                               </tbody>
+                                
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                </article>
+
+            </div>
+        </div>
+    </div>
+</row>
+
+
