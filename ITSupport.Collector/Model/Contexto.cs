@@ -11,10 +11,9 @@ using System.Management;
 
 namespace ITSupport.Collector
 {
-
-    public class Contexto
+    public class Contextox
     {
-        //ComputerInformation Computer = new ComputerInformation();
+        ComputerInformation Computer = new ComputerInformation();
 
 
         public bool ChecaConexao()

@@ -7,7 +7,6 @@
 }
 
 
-
 <h2 class="text-center">Cadastro de novo Equipamento</h2>
 
 @if (ViewBag.Computador != null)
@@ -132,7 +131,7 @@
             <div class="col-md-6 form-group">
                 <label class="col-md-4 control-label" for="servicetag">@Html.LabelFor(model => model.ServiceTag)</label>
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.servicetag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.servicetag) } })
+                    @Html.EditorFor(model => model.ServiceTag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.ServiceTag) } })
                     <div class="help-block">@Html.ValidationMessageFor(Model => Model.ServiceTag) </div>
                 </div>
             </div>
@@ -140,7 +139,7 @@
             <div class="col-md-6 form-group">
                 <label class="col-md-4 control-label" for="hostname">Hostname</label>
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.hostname, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.hostname) } })
+                    @Html.EditorFor(model => model.ServiceTag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.Hostname) } })
                     @*<input id="hostname" name="hostname" type="text" placeholder="Hostname" class="form-control input-md"" required="">*@
                     <div class="help-block">@Html.ValidationMessageFor(Model => Model.Hostname) </div>
 
@@ -176,9 +175,9 @@
             </div>
 
             <div class="col-md-6  form-group">
-                <label class="col-md-4 control-label" for="ccusto">Centro de Custo</label>
+                <label class="col-md-4 control-label" for="CentroCusto">Centro de Custo</label>
                 <div class="col-md-6">
-                    <select id="ccusto" name="ccusto" class="form-control">
+                    <select id="CentroCusto" name="CentroCusto" class="form-control">
                         @foreach (var item in ViewBag.ListaCentroCusto)
                         {
                             <option value="@item">@item</option>
@@ -193,7 +192,7 @@
             <div class="col-md-6 form-group">
                 <label class="col-md-4 control-label" for="status">Status</label>
                 <div class="col-md-4">
-                    <select id="status" name="status" class="form-control">
+                    <select id="Status" name="Status" class="form-control">
                         <option value="Em Uso">Em Uso</option>
                         <option value="Em Estoque">Em Estoque</option>
                         <option value="Em Reparo">Em Reparo</option>
@@ -206,7 +205,7 @@
             <div class="col-md-6 form-group">
                 <label class="col-md-4 control-label" for="ativo">Ativo</label>
                 <div class="col-md-4">
-                    <input id="ativo" name="ativo" type="text" placeholder="Patrimônio" class="form-control input-md" required="">
+                    <input id="Ativo" name="Ativo" type="text" placeholder="Patrimônio" class="form-control input-md" required="">
 
                 </div>
             </div>

@@ -7,7 +7,7 @@ namespace ITSupport.Web.Controllers
     {
 
         Repositorio Repo = new Repositorio();
-        string andre;
+
 
         public ActionResult Index()
         {
@@ -30,24 +30,24 @@ namespace ITSupport.Web.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult Equipamento(Computador computador)
-        {
+        //[HttpPost]
+        //public ActionResult Equipamento(ComputerInformation computador)
+        //{
 
-            if (ModelState.IsValid)
-            {
-                Repo.Salvar(computador);
-                return RedirectToAction("Equipamento", new { Computer = computador.Hostname });
-            } else
-            {
-                //Fazer bagui de falha
-                return RedirectToAction("Equipamento", new { Computer = "Falha" });
-            }
-            //Passa parametro de sucesso.
+        //    if (ModelState.IsValid)
+        //    {
+        //        Repo.Salvar(computador);
+        //        return RedirectToAction("Equipamento", new { Computer = computador.hostname });
+        //    } else
+        //    {
+        //        //Fazer bagui de falha
+        //        return RedirectToAction("Equipamento", new { Computer = "Falha" });
+        //    }
+        //    //Passa parametro de sucesso.
            
 
 
 
-        }
+        //}
     }
 }

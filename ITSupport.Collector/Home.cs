@@ -18,7 +18,7 @@ namespace ITSupport.Collector
     public partial class Home : Form
     {
         public string host;
-        Contexto Cont = new Contexto();
+        Contextox Cont = new Contextox();
         public string admin, password, domain;
 
         public Home()

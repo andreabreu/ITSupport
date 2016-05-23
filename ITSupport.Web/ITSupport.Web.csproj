@@ -229,6 +229,12 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\andre_abreu_trp\Documents\Visual Studio 2015\Projects\ITSupport\ITSupport.Contexto\ITSupport.Lib.csproj">
+      <Project>{9f5b8eb8-3286-4ea6-9938-548a2079cb6f}</Project>
+      <Name>ITSupport.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
