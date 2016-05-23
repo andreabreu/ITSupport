@@ -7,7 +7,7 @@ namespace ITSupport.Web.Controllers
     {
 
         Repositorio Repo = new Repositorio();
-        
+        string andre;
 
         public ActionResult Index()
         {

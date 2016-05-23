@@ -130,10 +130,10 @@
             </div>
 
             <div class="col-md-6 form-group">
-                <label class="col-md-4 control-label" for="servicetag">@Html.LabelFor(model => model.servicetag)</label>
+                <label class="col-md-4 control-label" for="servicetag">@Html.LabelFor(model => model.ServiceTag)</label>
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.servicetag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.servicetag) } })
-                    <div class="help-block">@Html.ValidationMessageFor(Model => Model.servicetag) </div>
+                    <div class="help-block">@Html.ValidationMessageFor(Model => Model.ServiceTag) </div>
                 </div>
             </div>
 
@@ -142,7 +142,7 @@
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.hostname, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.hostname) } })
                     @*<input id="hostname" name="hostname" type="text" placeholder="Hostname" class="form-control input-md"" required="">*@
-                    <div class="help-block">@Html.ValidationMessageFor(Model => Model.hostname) </div>
+                    <div class="help-block">@Html.ValidationMessageFor(Model => Model.Hostname) </div>
 
                 </div>
 
