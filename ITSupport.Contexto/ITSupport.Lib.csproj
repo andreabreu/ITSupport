@@ -7,8 +7,8 @@
     <ProjectGuid>{9F5B8EB8-3286-4EA6-9938-548A2079CB6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ITSupport.Contexto</RootNamespace>
-    <AssemblyName>ITSupport.Contexto</AssemblyName>
+    <RootNamespace>ITSupport.Lib</RootNamespace>
+    <AssemblyName>ITSupport.Lib</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
