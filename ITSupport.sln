@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSupport.Collector", "ITSupport.Collector\ITSupport.Collector.csproj", "{52B27F91-BEA6-43F8-8D8E-22E7AEA9AAB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSupport.Lib", "ITSupport.Contexto\ITSupport.Lib.csproj", "{9F5B8EB8-3286-4EA6-9938-548A2079CB6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSupport.Web", "J:\ITSupport\ITSupport.Web\ITSupport.Web\ITSupport.Web.csproj", "{61F58CF2-45DD-497E-A588-9697F8BB7DC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSupport.Web", "ITSupport.Web\ITSupport.Web.csproj", "{61F58CF2-45DD-497E-A588-9697F8BB7DC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,44 +1,43 @@
-﻿namespace ITSupport.Lib
+﻿using System;
+
+namespace ITSupport.Lib
 {
-    public class UserInformation
+    public class Usuario
     {
-        public string nome { get; set; } //displayName
-        public string username { get; set; } //sAMAccountName
-        public string departamento { get; set; } //description
-        public string email { get; set; } //mail
-        public string ramal { get; set; } //telephoneNumber
-        public string cargo { get; set; } //title
-        public string superior { get; set; } //manager
-        public string scriptlogon { get; set; } //scriptPath
-        public string matricula { get; set; } //pager
-        public string dominio { get; set; }
+        public string Nome { get; set; } //displayName\\
+        public string Username { get; set; } //sAMAccountName\\
+        public string Departamento { get; set; } //description\\
+        public string Email { get; set; } //mail\\
+        public string Ramal { get; set; } //telephoneNumber
+        public string Cargo { get; set; } //title
+        public string Superior { get; set; } //manager
+        public string ScriptLogon { get; set; } //scriptPath
+        public string Matricula { get; set; } //pager
+        public string Dominio { get; set; }
+
     }
 
-    public class ComputerInformation
+    public class UsuarioAD
     {
-        
-        public int id { get; set; } //
-        public string tipo { get; set; } //
-        public string fornecedor { get; set; } //
-        public string modelo { get; set; }//
+        public DateTime AccountExpirationDate { get; set; } //Um DateTime que especifica a data e hora em que a conta expira ou null se a conta nunca expira. 
+        public string DisplayName { get; set; } //A exibição de nome para esta entidade ou null se não houver nenhum nome de exibição.
+        public string DistinguishedName { get; } //O DN para esta entidade ou null se não houver nenhum DN.
+        public Nullable<bool> Enabled { get; set; } //true Se o objeto é ativado ou nulo se a conta não persistiu; Caso contrário, false.
+        public Nullable<DateTime> LastLogon { get; } //Um Nullable DateTime que especifica a data e hora do último logon para esta conta. 
+        public Nullable<DateTime> LastPasswordSet { get; } //Um Nullable DateTime que especifica a última data e hora em que a senha foi definida para esta conta.
+        public string SamAccountName { get; set; } //A conta do SAM nome para esta entidade ou nulo se nenhum nome tiver sido definida. 
+        public string ScriptPath { get; set; } //Um caminho do script para esta conta, ou null se não houver nenhum caminho de script. 
+        public string Sid { get; } //O SecurityIdentifier para esta entidade ou null se não houver nenhuma SID. 
+        public string UserPrincipalName { get; set; }  //O UPN associado a esta entidade ou null se não se o UPN não foi definido. 
+        public string Description { get; set; }
+        public string Mail { get; set; }
+        public string telephoneNumber { get; set; }
+        public string title { get; set; }
 
-        
-        public string servicetag { get; set; } //
-
-        public string processador { get; set; } //
-        public string harddrive { get; set; } //
-        public string memoria { get; set; } //
-
-        
-        public string hostname { get; set; } //
-        public string localidade { get; set; }
-        public string CCusto { get; set; } //
-        public string status { get; set; }//
-        public string ativo { get; set; } //
-
-        public string lastuser { get; set; } //
 
     }
+
+   
 
     public class Computador
     {

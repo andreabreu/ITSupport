@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ITSupport.Lib
 {
@@ -10,7 +11,7 @@ namespace ITSupport.Lib
 
         public Contexto()
         {
-            minhaConexao = new SqlConnection("server=BRSP015884;Trusted_Connection=yes;database=dbITSupport; user id=andre_abreu_trp;password=Suporte01; connection timeout=5");
+            minhaConexao = new SqlConnection(@"Data Source =.\SQLSERVER; Initial Catalog = dbITSupport; Integrated Security = SSPI;");
             minhaConexao.Open();
         }
 

@@ -139,7 +139,7 @@
             <div class="col-md-6 form-group">
                 <label class="col-md-4 control-label" for="hostname">Hostname</label>
                 <div class="col-md-4">
-                    @Html.EditorFor(model => model.ServiceTag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.Hostname) } })
+                    @Html.EditorFor(model => model.Hostname, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.Hostname) } })
                     @*<input id="hostname" name="hostname" type="text" placeholder="Hostname" class="form-control input-md"" required="">*@
                     <div class="help-block">@Html.ValidationMessageFor(Model => Model.Hostname) </div>
 
