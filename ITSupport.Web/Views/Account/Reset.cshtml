@@ -1,4 +1,4 @@
-﻿@model ITSupport.Web.Models.UserInformation
+﻿@model ITSupport.Lib.Usuario
 
 @{
     ViewBag.Title = "Reset";
@@ -71,7 +71,7 @@
                             <label class="col-md-4 control-label" for="Usuario">Usuário</label>
                             <div class="col-md-4">
                                 @* <input id="query" name="query" placeholder="query" class="form-control input-md" required="">*@
-                                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.username) } })
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.Username) } })
                                 @*<input class="form-control" name="username" id="username" placeholder="Usuário" type="text" required>*@
                             </div>
                         </div>

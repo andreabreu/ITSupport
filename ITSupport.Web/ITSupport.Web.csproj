@@ -161,8 +161,11 @@
     <Content Include="Content\bootstrap-treeview.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen.css" />
     <Content Include="Content\datatables.css" />
+    <Content Include="Content\datepicker.css" />
     <Content Include="Content\gridview-pagination.css" />
+    <Content Include="Content\jasny-bootstrap.min.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\submenu.css" />
     <Content Include="Content\typehead.css" />
@@ -173,6 +176,7 @@
     <Content Include="Images\aon_logo.png" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -181,6 +185,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\jasny-bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -212,6 +218,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Reset.cshtml" />
     <Content Include="Views\Busca\Index.cshtml" />
+    <Content Include="Views\Account\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

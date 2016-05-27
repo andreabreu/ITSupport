@@ -1,0 +1,447 @@
+﻿@model ITSupport.Lib.NewUsuario
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="text-center">Admissao de Funcionario</h2>
+
+<div class="panel panel-default">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        ;
+        <div class="row col-md-12">
+            <div class="row">
+                <h2 class="text-center">
+                    <small>Formulario Admissao</small>
+                </h2>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                    <div class="form-control" data-trigger="fileinput">
+                                        <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                        <span class="fileinput-filename"></span>
+                                    </div>
+                                    <span class="input-group-addon btn btn-default btn-file">
+                                        <span class="fileinput-new">Selecionar</span>
+                                        <span class="fileinput-exists">Trocar</span>
+                                        <input type="file" name="..." placeholder="">
+                                    </span>
+                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
+                                </div>
+                                <div class="help-block">Selecione o formulario de admissao assinado pelo Gestor</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">
+                                Data de Inicio:
+                            </label>
+                            <div class="col-md-3">
+                                <input type='text' name="DataInicio" class="form-control input-sm" id='datetimepicker' data-mask="99/99/9999" />
+                            </div>
+                            <div class="help-block">Data que o colaborador ira iniciar.</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-md-12">
+
+                <h2 class="text-center">
+                    <small>Informacoes do Colaborador</small>
+                </h2>
+                <hr />
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.Nome)
+                    </label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.DataNascimento)
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" name="DataNascimento" class="form-control input-sm" data-mask="99/99/9999" id="inputmask" placeholder="D. Nascimento">
+                    </div>
+                    <label class="help-block">(Ex.: 22/12/1990)</label>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.Rg)
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" name="Rg" class="form-control input-sm" data-mask="99.999.999-w" id="inputmask" placeholder="R.G.">
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.Cpf)
+                    </label>
+                    <div class="col-md-4">
+                        @*@Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control  input-md", data-mask="999-99-999-9999-9" } })*@
+                        <input type="text" name="Cpf" class="form-control input-sm" data-mask="999.999.999-99" id="inputmask" placeholder="CPF">
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.TelefoneResidencial)
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" name="TelefoneResidencial" class="form-control input-sm" data-mask="(99) 9999-9999" id="inputmask" placeholder="Tel. Residencial">
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.TelefoneCelular)
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" name="TelefoneCelular" class="form-control input-sm" data-mask="(99) 99999-9999" id="inputmask" placeholder="Tel. Celular">
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.EmailPessoal)
+                    </label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.EmailPessoal, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => Model.NomeMae)
+                    </label>
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.NomeMae, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-md-12">
+                <hr />
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => model.Cep)
+                    </label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control  input-sm", id = "cep", onblur = "pesquisacep(this.value);" } })
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => model.Rua)
+                    </label>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Rua, new { htmlAttributes = new { @class = "form-control  input-sm", id = "rua" } })
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => model.Bairro)
+                    </label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control  input-sm", id = "bairro" } })
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => model.Cidade)
+                    </label>
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control  input-sm", id = "cidade" } })
+                    </div>
+                    <label class="col-md-1 control-label">
+                        <label class="col-md-3 control-label" for="Estado"><span data-toggle="tooltip" data-placement="bottom" title="Estado">UF</span></label>
+                    </label>
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control  input-md", id = "uf" } })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="row">
+                <h2 class="text-center">
+                    <small>Informações de Contratacao</small>
+                </h2>
+                <hr />
+            </div>
+
+            <div class="row col-lg-12">
+                <div class="col-md-3 form-group">
+                    <label class="col-md-3 control-label">
+                        @Html.LabelFor(model => model.Cargo)
+                    </label>
+                    <div class="col-md-7">
+                        @Html.EditorFor(model => model.Cargo, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                    </div>
+                </div>
+
+                <div class="col-md-3 form-group">
+                    <label class="col-md-3 control-label" for="JobLeveling"><span data-toggle="tooltip" data-placement="bottom" title="Job Leveling">J. L.</span></label>
+                    <div class="col-md-5">
+                        <select id="JobLeveling" name="JobLeveling" class="form-control input-sm">
+                            <option value="9">9</option>
+                            <option value="8">8</option>
+                            <option value="7">7</option>
+                            <option value="6">6</option>
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 form-group">
+                    <label class="col-md-4 control-label" for="VinculoEmpregaticio"><span data-toggle="tooltip" data-placement="bottom" title="Vinculo Empregaticio">V. E.</span></label>
+                    <div class="col-md-7">
+                        <select id="VinculoEmpregaticio" name="VinculoEmpregaticio" class="form-control">
+                            <option value="Aprendiz">Aprendiz</option>
+                            <option value="Estagiario">Estagiario</option>
+                            <option value="CLT">CLT</option>
+                            <option value="Terceiro">Terceiro</option>
+                            <option value="Temporario">Temporario</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 form-group">
+                    <label class="col-md-4 control-label">
+                        @Html.LabelFor(model => model.Matricula)
+                    </label>
+                    <div class="col-md-7">
+                        @Html.EditorFor(model => model.Matricula, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row col-lg-12">
+                <div class="col-md-3 form-group">
+                    <label class="col-md-3 control-label">
+                        <label class="col-md-4 control-label" for="IdPeopleSoft"><span data-toggle="tooltip" data-placement="bottom" title="ID People Soft">P.S.</span></label>
+                    </label>
+                    <div class="col-md-7">
+                        @Html.EditorFor(model => model.IdPeopleSoft, new {htmlAttributes = new {@class = "form-control  input-sm"}})
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-3 control-label">
+                        @Html.LabelFor(model => model.CentroDeCusto)
+                    </label>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.CentroDeCusto, new {htmlAttributes = new {@class = "form-control input-md", id = "typeahead"}})
+                    </div>
+                </div>
+
+                <div class="col-md-3 form-group">
+                    <label class="col-md-4 control-label" for="UnidadeDeNegocio">
+                        <span data-toggle="tooltip" data-placement="bottom" title="Unidade de Negocio">U. N.</span>
+                    </label>
+                    <div class="col-md-7">
+                        <select id="UnidadeDeNegocio" name="UnidadeDeNegocio" class="form-control input-sm">
+                            <option value="Aon Affinity">Aon Affinity</option>
+                            <option value="Aon Holdings">Aon Holdings</option>
+                            <option value="Aon Benfield">Aon Benfield</option>
+                            <option value="Aon Hewitt">Aon Hewitt</option>
+                            <option value="Aon Hewitt Consultoria">Aon Hewitt Consultoria</option>
+                            <option value="Aon Risk">Aon Risk</option>
+                            <option value="Hibrido">Hibrido</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row col-lg-12">
+                <div class="col-md-3 form-group">
+                    <label class="col-md-3 control-label">
+                        <label class="col-md-4 control-label" for="IdPeopleSoft"><span data-toggle="tooltip" data-placement="bottom" title="ID People Soft">P.S.</span></label>
+                    </label>
+                    <div class="col-md-7">
+                        @Html.EditorFor(model => model.IdPeopleSoft, new { htmlAttributes = new { @class = "form-control  input-sm" } })
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="col-md-3 control-label">
+                        @Html.LabelFor(model => model.CentroDeCusto)
+                    </label>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.CentroDeCusto, new { htmlAttributes = new { @class = "form-control input-md", id = "typeahead" } })
+                    </div>
+                </div>
+
+                <div class="col-md-3 form-group">
+                    <label class="col-md-4 control-label" for="UnidadeDeNegocio">
+                        <span data-toggle="tooltip" data-placement="bottom" title="Unidade de Negocio">U. N.</span>
+                    </label>
+                    <div class="col-md-7">
+                        <select id="UnidadeDeNegocio" name="UnidadeDeNegocio" class="form-control input-sm">
+                            <option value="Aon Affinity">Aon Affinity</option>
+                            <option value="Aon Holdings">Aon Holdings</option>
+                            <option value="Aon Benfield">Aon Benfield</option>
+                            <option value="Aon Hewitt">Aon Hewitt</option>
+                            <option value="Aon Hewitt Consultoria">Aon Hewitt Consultoria</option>
+                            <option value="Aon Risk">Aon Risk</option>
+                            <option value="Hibrido">Hibrido</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    }
+
+
+</div>
+
+
+<script>
+    $('#datetimepicker')
+        .datepicker({
+            format: 'dd/mm/yyyy',
+            language: 'pt-BR',
+            weekStart: 0,
+            startDate: '0d',
+            todayHighlight: true
+        });
+</script>
+
+<script type="text/javascript">
+    $('.inputmask')
+        .inputmask({
+            mask: '999-99-999-9999-9'
+        })
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#typeahead').typeahead({
+      name: 'accounts',
+      local: ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen']
+    });
+});
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
+
+<script type="text/javascript">
+
+    function limpa_formulário_cep() {
+        //Limpa valores do formulário de cep.
+        document.getElementById('rua').value = ("");
+        document.getElementById('bairro').value = ("");
+        document.getElementById('cidade').value = ("");
+        document.getElementById('uf').value = ("");
+
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value = (conteudo.logradouro);
+            document.getElementById('bairro').value = (conteudo.bairro);
+            document.getElementById('cidade').value = (conteudo.localidade);
+            document.getElementById('uf').value = (conteudo.uf);
+
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if (validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value = "...";
+                document.getElementById('bairro').value = "...";
+                document.getElementById('cidade').value = "...";
+                document.getElementById('uf').value = "...";
+
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+</script>

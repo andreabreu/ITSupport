@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Security.AccessControl;
 
 namespace ITSupport.Lib
 {
@@ -8,36 +10,93 @@ namespace ITSupport.Lib
         public string Username { get; set; } //sAMAccountName\\
         public string Departamento { get; set; } //description\\
         public string Email { get; set; } //mail\\
-        public string Ramal { get; set; } //telephoneNumber
+        public int Ramal { get; set; } //telephoneNumber
         public string Cargo { get; set; } //title
         public string Superior { get; set; } //manager
-        public string ScriptLogon { get; set; } //scriptPath
+        public string ScriptPath { get; set; } //scriptPath
         public string Matricula { get; set; } //pager
         public string Dominio { get; set; }
 
+        //Informacoes AD
+        public DateTime Created { get; set; }
+
+        public DateTime AccountExpirationDate { get; set; }
+        //Um DateTime que especifica a data e hora em que a conta expira ou null se a conta nunca expira. 
+        public string DistinguishedName { get; set; } //O DN para esta entidade ou null se não houver nenhum DN.
+        public string Enabled { get; set; }
+        //true Se o objeto é ativado ou nulo se a conta não persistiu; Caso contrário, false.
+        public DateTime LastLogon { get; set; }
+        //Um Nullable DateTime que especifica a data e hora do último logon para esta conta. 
+        public DateTime LastPasswordSet { get; set; }
+        //Um Nullable DateTime que especifica a última data e hora em que a senha foi definida para esta conta.
+        
     }
 
-    public class UsuarioAD
+    public class NewUsuario
     {
-        public DateTime AccountExpirationDate { get; set; } //Um DateTime que especifica a data e hora em que a conta expira ou null se a conta nunca expira. 
-        public string DisplayName { get; set; } //A exibição de nome para esta entidade ou null se não houver nenhum nome de exibição.
-        public string DistinguishedName { get; } //O DN para esta entidade ou null se não houver nenhum DN.
-        public Nullable<bool> Enabled { get; set; } //true Se o objeto é ativado ou nulo se a conta não persistiu; Caso contrário, false.
-        public Nullable<DateTime> LastLogon { get; } //Um Nullable DateTime que especifica a data e hora do último logon para esta conta. 
-        public Nullable<DateTime> LastPasswordSet { get; } //Um Nullable DateTime que especifica a última data e hora em que a senha foi definida para esta conta.
-        public string SamAccountName { get; set; } //A conta do SAM nome para esta entidade ou nulo se nenhum nome tiver sido definida. 
-        public string ScriptPath { get; set; } //Um caminho do script para esta conta, ou null se não houver nenhum caminho de script. 
-        public string Sid { get; } //O SecurityIdentifier para esta entidade ou null se não houver nenhuma SID. 
-        public string UserPrincipalName { get; set; }  //O UPN associado a esta entidade ou null se não se o UPN não foi definido. 
-        public string Description { get; set; }
-        public string Mail { get; set; }
-        public string telephoneNumber { get; set; }
-        public string title { get; set; }
+        //Informacoes do Colaborador
+        public DateTime DataInicio { get; set; }
+        public string Nome { get; set; }
+        public DateTime DataNascimento { get; set; }
+        
+        public string Rg { get; set; }
+        public string Cpf { get; set; }
+        public string TelefoneResidencial { get; set; }
+        public string TelefoneCelular { get; set; }
+        public string EmailPessoal { get; set; }
+        public string Endereco { get; set; }
+        public string Cep { get; set; }
+        public string Rua { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public string NomeMae { get; set; }
 
+        public string Cargo { get; set; }
+        public int JobLeveling { get; set; }
+        public string VinculoEmpregaticio { get; set; }
+        public int Matricula { get; set; }
+        public int IdPeopleSoft { get; set; }
+        public string CentroDeCusto { get; set; }
+        public string Area { get; set; }
+        public string UnidadeDeNegocio { get; set; }
+        public string Gestor { get; set; }
+        public int MatriculaGestor { get; set; }
+        public string LocalDeTrabalho { get; set; }
+        public string Cliente { get; set; } //S ou N
+        public string MotivoVaga { get; set; }
+        public string Efetivacao { get; set; }
+
+        public string VinculoAnterior { get; set; }
+
+
+        //Informacoes sobre Infra-Estrutura
+        public string AlteracaoLayout { get; set; }
+        public string NovaEstacao { get; set; }
+        public string NovoEquipamento { get; set; }
+        public string NovoRamal { get; set; }
+        public string NumeroRamal { get; set; }
+        public string TipoEquipamento { get; set; }
+
+        //Informacoes para E-mail
+        public string GrupoDeEmail { get; set; }
+        public string SugestaoDeEmail { get; set; }
+
+        //Mapeamento de Perfis
+        public string AcessoRede { get; set; }
+        public string AcessoSalesForce { get; set; }
+        public string AcessoAonAccess { get; set; }
+        public string AcessoGams { get; set; }
+        public string AcessoRelatoriosWeb { get; set; }
+        public string AcessoMicrosiga { get; set; }
+        public string AcessoCol { get; set; }
+        public string AcessoInfraClient { get; set; }
+        public string AcessoInfraManut { get; set; }
+        public string OutrosAcessos { get; set; }
+
+        public DateTime DataSolicitacao { get; set; }
 
     }
-
-   
 
     public class Computador
     {
@@ -53,8 +112,8 @@ namespace ITSupport.Lib
         public string Dominio { get; set; }
 
         //Hardware
-        public string Tipo { get; set; } 
-        public string Fornecedor { get; set; } //Win32_ComputerSystem - Manufacturer
+        public string Tipo { get; set; }
+        public string Fabricante { get; set; } //Win32_ComputerSystem - Manufacturer
         public string Modelo { get; set; } //Win32_ComputerSystem - Model
 
         public string Memoria { get; set; } //Win32_ComputerSystem - TotalPhysicalMemory

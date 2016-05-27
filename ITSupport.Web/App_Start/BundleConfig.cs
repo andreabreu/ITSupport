@@ -28,7 +28,10 @@ namespace ITSupport.Web
                         "~/Scripts/waiting-for.js",
                         "~/Scriptsalert-dialog.js",
                         "~/Scripts/datatables.js",
-                        "~/Scripts/typeahead.js"));
+                        "~/Scripts/typeahead.js",
+                        "~/Scripts/bootstrap-datepicker.js",
+                        "~/Scripts/jasny-bootstrap.min.js",
+                        "~/Scripts/chosen.jquery.min.js"));
 
    
 
@@ -41,7 +44,10 @@ namespace ITSupport.Web
                       "~/Content/submenu.css",
                       "~/Content/site.css",
                       "~/Content/bootstrap-treeview.min.css",
-                      "~/Content/typehead.css"));
+                      "~/Content/typehead.css",
+                      "~/Content/datepicker.css",
+                      "~/Content/jasny-bootstrap.min.css",
+                      "~/Content/chosen.css"));
         }
     }
 }

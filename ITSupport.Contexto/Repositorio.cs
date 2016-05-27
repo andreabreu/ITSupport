@@ -22,7 +22,7 @@ namespace ITSupport.Lib
             strQuery += string.Format(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}') ",
 
                 Computador.Tipo,
-                Computador.Fornecedor,
+                Computador.Fabricante,
                 Computador.Modelo,
                 Computador.ServiceTag,
                 Computador.Processador,
@@ -50,7 +50,7 @@ namespace ITSupport.Lib
             var strQuery = "";
             strQuery += " UPDATE tblComputer SET ";
             strQuery += string.Format(" Tipo = '{0}', ", Computador.Tipo);
-            strQuery += string.Format(" Fornecedor = '{0}', ", Computador.Fornecedor);
+            strQuery += string.Format(" Fornecedor = '{0}', ", Computador.Fabricante);
             strQuery += string.Format(" Modelo = '{0}', ", Computador.Modelo);
             strQuery += string.Format(" ServiceTag = '{0}', ", Computador.ServiceTag);
             strQuery += string.Format(" Processador = '{0}', ", Computador.Processador);

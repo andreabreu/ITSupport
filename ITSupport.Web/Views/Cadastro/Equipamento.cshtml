@@ -89,22 +89,22 @@
                 <div class="col-md-4">
                     <select id="Modelo" name="Modelo" class="form-control">
                         <optgroup label="Hewlett Packard">
-                            @foreach (var item in ViewBag.ListaModeloHP)
+                            @*@foreach (var item in ViewBag.ListaModeloHP)
                             {
                                 <option value="@item">@item</option>
-                            }
+                            }*@
                         </optgroup>
                         <optgroup label="Dell Inc.">
-                            @foreach (var item in ViewBag.ListaModeloDell)
+                            @*@foreach (var item in ViewBag.ListaModeloDell)
                             {
                                 <option value="@item">@item</option>
-                            }
+                            }*@
                         </optgroup>
                         <optgroup label="Lenovo">
-                            @foreach (var item in ViewBag.ListaModeloLenovo)
+                            @*@foreach (var item in ViewBag.ListaModeloLenovo)
                             {
                                 <option value="@item">@item</option>
-                            }
+                            }*@
                         </optgroup>
                     </select>
 
@@ -129,7 +129,7 @@
             </div>
 
             <div class="col-md-6 form-group">
-                <label class="col-md-4 control-label" for="servicetag">@Html.LabelFor(model => model.ServiceTag)</label>
+                <label class="col-md-4 control-label" for="ServiceTag">@Html.LabelFor(model => model.ServiceTag)</label>
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.ServiceTag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(model => model.ServiceTag) } })
                     <div class="help-block">@Html.ValidationMessageFor(Model => Model.ServiceTag) </div>
@@ -178,10 +178,10 @@
                 <label class="col-md-4 control-label" for="CentroCusto">Centro de Custo</label>
                 <div class="col-md-6">
                     <select id="CentroCusto" name="CentroCusto" class="form-control">
-                        @foreach (var item in ViewBag.ListaCentroCusto)
+                        @*@foreach (var item in ViewBag.ListaCentroCusto)
                         {
                             <option value="@item">@item</option>
-                        }
+                        }*@
                     </select>
                 </div>
             </div>

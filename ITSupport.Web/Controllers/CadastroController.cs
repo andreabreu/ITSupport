@@ -19,11 +19,11 @@ namespace ITSupport.Web.Controllers
         {
             var computador = new Computador();
 
-            ViewBag.ListaCentroCusto = Repo.ListaColuna("CentroCusto", "tblCentroCusto");
-            ViewBag.ListaModeloDell = Repo.ListaModelo("Dell Inc.");
-            ViewBag.ListaModeloLenovo = Repo.ListaModelo("Lenovo");
-            ViewBag.ListaModeloHP = Repo.ListaModelo("Hewlett Packard");
-            ViewBag.Computador = Computer;
+           // ViewBag.ListaCentroCusto = Repo.ListaColuna("CentroCusto", "tblCentroCusto");
+            //ViewBag.ListaModeloDell = Repo.ListaModelo("Dell Inc.");
+           // ViewBag.ListaModeloLenovo = Repo.ListaModelo("Lenovo");
+           // ViewBag.ListaModeloHP = Repo.ListaModelo("Hewlett Packard");
+           // ViewBag.Computador = Computer;
 
 
             return View(computador);

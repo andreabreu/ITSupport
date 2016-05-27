@@ -33,7 +33,7 @@ namespace ITSupport.Lib
             usuario.Cargo = rs.GetDirectoryEntry().Properties["title"].Value.ToString();
             usuario.Superior = rs.GetDirectoryEntry().Properties["manager"].Value.ToString().Substring(3).Split(',')[0];
             usuario.Departamento = rs.GetDirectoryEntry().Properties["Description"].Value.ToString();
-            usuario.ScriptLogon = rs.GetDirectoryEntry().Properties["scriptPath"].Value.ToString();
+            usuario.ScriptPath = rs.GetDirectoryEntry().Properties["scriptPath"].Value.ToString();
             usuario.Matricula = rs.GetDirectoryEntry().Properties["pager"].Value.ToString();
 
             return usuario;

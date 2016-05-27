@@ -27,13 +27,18 @@ namespace ITSupport.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Reset(UserInformation usuario)
+        public ActionResult Reset(Usuario usuario)
         {
 
 
             return View(usuario);
 
 
+        }
+
+        public ActionResult Cadastro()
+        {
+            return View();
         }
     }
 }
