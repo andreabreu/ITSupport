@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+
+
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container">
+            <div class="navbar-header">
+
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="clip-list-2"></span>
+                </button>
+
+                <a class="navbar-brand" href="~/">
+                    <img src="~/assets/images/aon_logo.png" height="35" />
+                    IT ONE
+                </a>
+
+            </div>
+            <div class="navbar-tools">
+
+                <ul class="nav navbar-right">
+
+
+                    <li class="dropdown current-user">
+                        <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+                            <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAV8AAAAJGI3NWRkMTQwLTkyMDMtNDViMC1iMDZlLTU4NjYxZmMzNjE5NA.jpg" height="30" class="circle-img" alt="">
+                            <span class="username">@ViewBag.User</span>
+                            <i class="clip-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">
+                                    <i class="clip-user-2"></i>
+                                    &nbsp;My Profile
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <i class="clip-exit"></i>
+                                    &nbsp;Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="main-container">
+        <div class="navbar-content">
+
+            <div class="main-navigation navbar-collapse collapse">
+
+                <div class="navigation-toggler">
+                    <i class="clip-chevron-left"></i>
+                    <i class="clip-chevron-right"></i>
+                </div>
+
+                <ul class="main-navigation-menu">
+                    <li>
+                        <a href="/Home">
+                            <i class="clip-home-3"></i>
+                            <span class="title"> Home </span><span class="selected"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="active">
+                            <i class="clip-list"></i>
+                            <span class="title"> Inventario </span>
+                            <i class="icon-arrow"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    Estoque <i class="icon-arrow"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="javascript:;">
+                                            Computadores <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-desktop"></i>
+                                                    Desktops
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-laptop"></i>
+                                                    Laptops
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            Telefonia <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#"><i class="fa fa-times"></i>Telefonia Fixa</a></li>
+                                            <li><a href="#"><i class="fa fa-times"></i>Telefonia Movel</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    Localidade <i class="icon-arrow"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="#"><i class="fa fa-map"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    Telefonia <i class="icon-arrow"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="#"><i class="fa fa-times"></i>Telefonia Fixa</a></li>
+                                    <li><a href="#"><i class="fa fa-times"></i>Telefonia Movel</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    Clientes <i class="icon-arrow"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="#"><i class="fa fa-times"></i>Microcity</a></li>
+                                    <li><a href="#"><i class="fa fa-times"></i>Infinity</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="active">
+                            <i class="clip-users-2"></i>
+                            <span class="title"> Recursos Humanos </span>
+                            <i class="icon-arrow"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">Admissao</a>
+                                <a href="#">Demissao</a>
+                                <a href="#">Transferencia</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" class="active">
+                            <i class="clip-question"></i>
+                            <span class="title"> Solicitacoes </span>
+                            <i class="icon-arrow"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">Aon Remote Access</a>
+                                <a href="#">Emprestimo</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" class="active">
+                            <i class="clip-list"></i>
+                            <span class="title"> Cadastrar </span>
+                            <i class="icon-arrow"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            
+                            <li>
+                                <a href="javascript:;">
+                                    Equipamento <i class="icon-arrow"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="#"><i class="fa fa-desktop"></i>Computador</a></li>
+                                    <li><a href="#"><i class="fa fa-storage"></i>Servidor</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li><a href="#">Fabricante</a></li>
+                            <li><a href="#">Fornecedor</a></li>
+                            <li><a href="#">Licenca de Software</a></li>
+                            <li><a href="#">Modelo</a></li>
+                            <li><a href="#">Pedido de Compra</a></li>
+                            <li><a href="#">Usuario</a></li>
+                            
+                            
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="main-content">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <div class="footer clearfix">
+        <div class="footer-inner">
+            2016 &copy; ITSupport v2.0 Web
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/plugins")
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+        });
+    </script>
+
+</body>
+</html>

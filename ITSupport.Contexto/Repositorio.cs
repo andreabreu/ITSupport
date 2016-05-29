@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ITSupport.Lib
 {
@@ -12,29 +10,26 @@ namespace ITSupport.Lib
         private Contexto contexto;
 
 
-        public void Inserir(Computador Computador)
+        public void Inserir(Computador computador)
         {
-            DateTime myDateTime = DateTime.Now;
-            string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+            var myDateTime = DateTime.Now;
 
             var strQuery = "";
-            strQuery += " INSERT INTO tblComputer (Tipo, Fornecedor, Modelo, ServiceTag, Processador, HardDrive, Memoria, Hostname, Localidade, CentroCusto, Status, Ativo, LastUser, Datacadastro, DataUpdate) ";
-            strQuery += string.Format(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}') ",
+            strQuery += " INSERT INTO tblComputador (Tipo, Fabricante, Modelo, ServiceTag, Processador, HardDrive, Memoria, Hostname, CentroCusto, Status, Ativo, DataCadastro, DataUpdate) ";
+            strQuery += string.Format(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}', `{12}`) ",
 
-                Computador.Tipo,
-                Computador.Fabricante,
-                Computador.Modelo,
-                Computador.ServiceTag,
-                Computador.Processador,
-                Computador.HardDrive,
-                Computador.Memoria,
-                Computador.Hostname,
-                Computador.Localidade,
-                Computador.CentroCusto,
-                Computador.Status,
-                Computador.Ativo,
-                null,
-                sqlFormattedDate,
+                computador.Tipo,
+                computador.Fabricante,
+                computador.Modelo,
+                computador.ServiceTag,
+                computador.Processador,
+                computador.HardDrive,
+                computador.Memoria,
+                computador.Hostname,
+                computador.CentroCusto,
+                computador.Status,
+                computador.Ativo,
+                myDateTime,
                 null);
             using (contexto = new Contexto())
             {
@@ -70,13 +65,31 @@ namespace ITSupport.Lib
             }
         }
 
-        public void Salvar(Computador Computador)
+        public void Salvar(Computador computador)
         {
-            if (Computador.ID > 0)
-                Alterar(Computador);
+            if (computador.ID > 0)
+                Alterar(computador);
             else
-                Inserir(Computador);
+                Inserir(computador);
         }
+
+        public SqlDataReader ChecaTagExiste(Computador computador)
+        {
+
+            var strQuery = "SELECT COUNT(*) from tblComputador where ServiceTag like '" + computador.ServiceTag + "'";
+
+            using (contexto = new Contexto())
+            {
+                var retornoDataReader = contexto.ExecutaComandoComRetorno(strQuery);
+                return retornoDataReader;
+            }
+
+
+
+        }
+
+
+
 
         public void Excluir(int id)
         {
@@ -98,35 +111,35 @@ namespace ITSupport.Lib
 
         private List<string> TransformaReaderEmListaDeObjeto(SqlDataReader reader)
         {
-            var Lista = new List<string>();
+            var lista = new List<string>();
             while (reader.Read())
             {
-                Lista.Add(reader.GetString(0));
+                lista.Add(reader.GetString(0));
             }
             reader.Close();
-            return Lista;
+            return lista;
         }
 
 
         public List<string> ListaColuna(string coluna, string tabela)
         {
-            List<string> Listagem = Lista("SELECT DISTINCT " + coluna + " FROM " + tabela + "");
+            List<string> listagem = Lista("SELECT DISTINCT " + coluna + " FROM " + tabela + "");
 
-            return Listagem;
+            return listagem;
         }
 
         public List<string> ListaModelo(string modelo)
         {
-            List<string> Listagem = Lista("Select Modelo from tblEquipamento where Fornecedor = '" + modelo + "' order by Modelo DESC");
-            return Listagem;
+            List<string> listagem = Lista("Select Modelo from tblEquipamento where Fornecedor = '" + modelo + "' order by Modelo DESC");
+            return listagem;
         }
 
         public string Typeahead(string coluna, string tabela)
         {
-            List<string> Users = ListaColuna(coluna, tabela);
+            List<string> users = ListaColuna(coluna, tabela);
 
             StringBuilder builder = new StringBuilder();
-            foreach (string item in Users) // Loop through all strings
+            foreach (string item in users) // Loop through all strings
             {
                 string itemnovo = "'" + item + "',";
                 builder.Append(item).Replace(item, itemnovo.ToLower());
@@ -166,7 +179,7 @@ namespace ITSupport.Lib
                         temObjeto = new SearchInformation()
                         {
                             tipo = "<span class=\"glyphicon glyphicon-hdd\"></span>",
-                            descricao = reader["hostname"].ToString() + " - " + reader["Fornecedor"].ToString()
+                            descricao = reader["hostname"] + " - " + reader["Fornecedor"]
                         };
                     }
                     if (strQuery.Contains("tblLogins"))

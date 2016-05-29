@@ -11,6 +11,9 @@ namespace ITSupport.Lib
 {
     class ActiveDirectory
     {
+
+
+        
         public DirectorySearcher dirSearch = null;
 
         Usuario usuario = new Usuario();
@@ -29,7 +32,7 @@ namespace ITSupport.Lib
             usuario.Username = rs.GetDirectoryEntry().Properties["samaccountname"].Value.ToString();
             usuario.Email = rs.GetDirectoryEntry().Properties["mail"].Value.ToString();
 
-            usuario.Ramal = rs.GetDirectoryEntry().Properties["telephoneNumber"].Value.ToString();
+            usuario.Ramal = (int)rs.GetDirectoryEntry().Properties["telephoneNumber"].Value;
             usuario.Cargo = rs.GetDirectoryEntry().Properties["title"].Value.ToString();
             usuario.Superior = rs.GetDirectoryEntry().Properties["manager"].Value.ToString().Substring(3).Split(',')[0];
             usuario.Departamento = rs.GetDirectoryEntry().Properties["Description"].Value.ToString();
@@ -48,8 +51,7 @@ namespace ITSupport.Lib
                     dirSearch = new DirectorySearcher(
                     new DirectoryEntry("LDAP://" + domain, username, passowrd));
                 }
-                catch (DirectoryServicesCOMException e)
-                {
+                catch {
                     //MessageBox.Show("Connection Creditial is Wrong!!!, please Check.", "Erro Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     // e.Message.ToString();
                 }

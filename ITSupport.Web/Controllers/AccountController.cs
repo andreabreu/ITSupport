@@ -21,7 +21,7 @@ namespace ITSupport.Web.Controllers
         public ActionResult Reset()
         {
             Repositorio repo = new Repositorio();
-            ViewBag.Users = repo.Typeahead("logins", "tblLogins");
+            ViewBag.Users = repo.Typeahead("Username", "tblUsuario");
 
             return View();
         }

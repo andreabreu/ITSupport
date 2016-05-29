@@ -11,7 +11,7 @@ namespace ITSupport.Lib
 
         public Contexto()
         {
-            minhaConexao = new SqlConnection(@"Data Source =.\SQLSERVER; Initial Catalog = dbITSupport; Integrated Security = SSPI;");
+            minhaConexao = new SqlConnection(@"Data Source =.\SQLEXPRESS; Initial Catalog = dbITSupport; Integrated Security = SSPI;");
             minhaConexao.Open();
         }
 
