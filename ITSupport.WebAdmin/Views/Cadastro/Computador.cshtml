@@ -1,0 +1,239 @@
+﻿@model ITSupport.Lib.Computador
+
+@{
+    ViewBag.Title = "Computador";
+    ViewBag.User = "Andre Abreu";
+}
+
+
+<div class="container">
+    <!-- start: PAGE HEADER -->
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!-- start: PAGE TITLE & BREADCRUMB -->
+            <ol class="breadcrumb">
+                <li>
+                    <i class="clip-pencil"></i>
+                    <a href="#">
+                        @ViewBag.Controller
+                    </a>
+                </li>
+                <li class="active">
+                    @ViewBag.Title
+                </li>
+                <li class="search-box">
+                    <form class="sidebar-search">
+                        <div class="form-group">
+                            <input type="text" placeholder="Start Searching...">
+                            <button class="submit">
+                                <i class="clip-search-3"></i>
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            </ol>
+            <div class="page-header">
+                <h1>Cadastrar Equipamento </h1>
+            </div>
+            <!-- end: PAGE TITLE & BREADCRUMB -->
+        </div>
+    </div>
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- start: TEXT FIELDS PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Formulario de Cadastro
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <h3>
+                            <i class="fa fa-desktop"></i> Hardware
+                        </h3>
+                    </p>
+                    <hr />
+
+                    @using (Html.BeginForm("Computador", "Cadastro", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", id = "form" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+
+                            <div class="col-sm-9 col-sm-offset-2">
+                                <select name="Tipo" class="form-control">
+                                    <option value="Desktop">Desktop</option>
+                                    <option value="Notebook">Notebook</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-2">
+                                <select name="Fabricante" class="form-control">
+                                    <option value="Dell Inc.">Dell Inc.</option>
+                                    <option value="Lenovo">Lenovo</option>
+                                    <option value="Hewlett Packard">Hewlett Packard</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select name="Modelo" class="form-control">
+                                    <optgroup label="Hewlett Packard">
+                                        @*@foreach (var item in ViewBag.ListaModeloHP)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }*@
+                                    </optgroup>
+                                    <optgroup label="Dell Inc.">
+                                        @*@foreach (var item in ViewBag.ListaModeloDell)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }*@
+                                    </optgroup>
+                                    <optgroup label="Lenovo">
+                                        @*@foreach (var item in ViewBag.ListaModeloLenovo)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }*@
+
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.EditorFor(m => m.ServiceTag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.ServiceTag) } })
+                                <div class="help-block"><p class="text-danger">@Html.ValidationMessageFor(model => model.ServiceTag)</p> </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-2">
+                                <select id="Processador" name="Processador" class="form-control">
+
+                                    <option value="Intel Celeron">Intel Celeron</option>
+                                    <option value="Intel Core i3">Intel Core i3</option>
+                                    <option value="Intel Core i5">Intel Core i5</option>
+                                    <option value="Intel Core i7">Intel Core i7</option>
+                                    <option value="Intel Dual Core">Intel Dual Core</option>
+                                    <option value="Intel Pentium">Intel Pentium</option>
+                                    <option value="Intel Pentium Dual-Core">Intel Pentium Dual-Core</option>
+                                    <option value="Intel Xeon">Intel Xeon</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select id="HardDrive" name="HardDrive" class="form-control">
+                                    <option value="80 GB">80 GB</option>
+                                    <option value="160 GB">160 GB</option>
+                                    <option value="320 GB">320 GB</option>
+                                    <option value="500 GB">500 GB</option>
+                                    <option value="750 GB">750 GB</option>
+                                    <option value="1 TB">1 TB</option>
+                                    <option value="2 GB">2 GB</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select id="Memoria" name="Memoria" class="form-control">
+                                    <option value="2 GB">2 GB</option>
+                                    <option value="4 GB">4 GB</option>
+                                    <option value="6 GB">6 GB</option>
+                                    <option value="8 GB">8 GB</option>
+                                    <option value="12 GB">12 GB</option>
+                                    <option value="16 GB">16 GB</option>
+                                    <option value="32 GB">32 GB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <h3>
+                            <i class="fa fa-building"></i> Alocacao
+                        </h3>
+                        <p>
+                            Preencha com os dados em que o equipamento esta alocado, informando sua Localidade e Centro de Custo. <br /><small><span class="label label-warning"> Aviso:</span>Dados inseridos incorretamente fara com que o Objeto no ActiveDirectory seja criado com local/nome errado e sera passada uma informacao incorreta para a Controladoria.</small>
+                        </p>
+                        <hr />
+                        <div class="form-group">
+
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <span class="input-help">
+                                    @Html.EditorFor(m => m.Hostname, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.Hostname)}})
+                                   
+                                    <i class="help-button popovers" data-html="true" title="" data-content="Padrao: <i class=text-primary>[PAIS]</i> <i class=text-success>[LOCAL]</i> <i class=text-info>[TIPO]</i> <i class=text-warning>[ATIVO]</i><br />Ex.: Desktop de SP: <strong class=text-primary>BR</strong><strong class=text-success>SP</strong><strong class=text-warning>123456</strong><br />Ex.: Notebook de SP: <strong class=text-primary>BR</strong><strong class=text-success>SP</strong><strong class=text-info>N</strong><strong class=text-warning>123456</strong><br />Lista de padrao de Locais:<ul><li>Campinas - <strong>CPS</strong></li><li>Curitba - <strong>CTA</strong></li><li>Porto Alegre - <strong>POA</strong></li><li>Ribeirao Preto - <strong>RAO</strong></li><li>Rio de Janeiro - <strong>RJ</strong></li><li>Salvador - <strong>SAO</strong></li><li>Sao Paulo - <strong>SP</strong></li><li>Vitoria - <strong>ES</strong></li></ul>" data-placement="right" data-trigger="hover" data-rel="popover" data-original-title="Padrao de Hostname"></i>
+                                </span>
+                                <div class="help-block"><p class="text-danger">@Html.ValidationMessageFor(model => model.Hostname)</p> </div>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <span class="input-icon">
+                                    @Html.EditorFor(m => m.Ativo, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.Ativo)}})
+                                    <i class="fa fa-barcode">&nbsp;&nbsp;</i>
+                                </span>
+                                <div class="help-block"><p class="text-danger">@Html.ValidationMessageFor(model => model.Ativo)</p> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-2">
+                                <select id="Status" name="Status" class="form-control">
+                                    <option value="Em Uso">Em Uso</option>
+                                    <option value="Em Estoque">Em Estoque</option>
+                                    <option value="Em Reparo">Em Reparo</option>
+                                    <option value="Depreciado">Depreciado</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select id="Localidade" name="Localidade" class="form-control">
+                                    <option value="São Paulo">São Paulo</option>
+                                    <option value="Belo Horizonte">Belo Horizonte</option>
+                                    <option value="Campinas">Campinas</option>
+                                    <option value="Curitiba">Curitiba</option>
+                                    <option value="Porto Alegre">Porto Alegre</option>
+                                    <option value="Ribeirão Preto">Ribeirão Preto</option>
+                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                    <option value="Salvador">Salvador</option>
+                                    <option value="Vitória">Vitória</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <span class="input-icon">
+                                    <select id="CentroCusto" name="CentroCusto" class="form-control">
+                                        @*@foreach (var item in ViewBag.ListaCentroCusto)
+                                            {
+                                                <option value="@item">@item</option>
+                                            }*@
+                                    </select>
+                                    <i class="fa fa-briefcase">&nbsp;&nbsp;</i>
+                                </span>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-2">
+                                <div class="checkbox">
+                                    <label for="aAD">
+                                        <input type="checkbox" name="aAD" id="aAD" value="True">
+                                        Criar Objeto no Active Diretory
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="aControladoria">
+                                        <input type="checkbox" name="aControladoria" id="aControladoria" value="True">
+                                        Informar Controladoria
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 col-sm-offset-3">
+                                <input type="submit" name="submit" value="Enviar" class="btn btn-primary" />
+                                <a href="~/" class="btn btn-danger">Cancelar </a>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            <!-- end: TEXT FIELDS PANEL -->
+        </div>
+
+    </div>
+</div>

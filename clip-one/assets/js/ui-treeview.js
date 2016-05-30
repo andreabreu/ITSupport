@@ -30,14 +30,14 @@ var UITreeview = function () {
         //External data 
         $("#tree3").dynatree({
             // In real life we would call a URL on the server like this:
-            //          initAjax: {
-            //              url: "/getTopLevelNodesAsJson",
-            //              data: { mode: "funnyMode" }
-            //              },
+                     initAjax: {
+                         url: "/",
+                         data: { mode: "funnyMode" }
+                         },
             // .. but here we use a local file instead:
-            initAjax: {
-                url: "assets/plugins/dynatree/tests/sample-data1.json"
-            },
+            // initAjax: {
+            //     url: "assets/plugins/dynatree/tests/sample-data1.json"
+            // },
             onActivate: function (node) {
                 $("#echoActive").text(node.data.title);
             },

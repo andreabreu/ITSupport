@@ -1,6 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Security.AccessControl;
+using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace ITSupport.Lib
 {
@@ -100,13 +100,15 @@ namespace ITSupport.Lib
 
     public class Computador
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         //Location
+        [Required]
         public string Hostname { get; set; }
         public string Localidade { get; set; }
         public string CentroCusto { get; set; }
         public string Status { get; set; } //Em Uso, em Reparo, bla bla
+        [Required]
         public string Ativo { get; set; }
         public string LastUser { get; set; }
         public string Dominio { get; set; }
@@ -119,6 +121,7 @@ namespace ITSupport.Lib
         public string Memoria { get; set; } //Win32_ComputerSystem - TotalPhysicalMemory
         public string Processador { get; set; } //Win32_Processor - Name
         public string HardDrive { get; set; }
+        [Required]
         public string ServiceTag { get; set; } //Win32_BIOS - SerialNumber
 
         public string BiosVersion { get; set; } //Win32_BIOS - SMBIOSBIOSVersion

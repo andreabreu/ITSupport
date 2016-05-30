@@ -148,10 +148,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CadastroModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2845,83 +2847,11 @@
     <Content Include="assets\plugins\x-editable\img\loading.gif" />
     <Content Include="assets\plugins\x-editable\js\bootstrap-editable.js" />
     <Content Include="assets\plugins\x-editable\js\bootstrap-editable.min.js" />
-    <Content Include="Content\main-responsive.css" />
-    <Content Include="Content\main.css" />
-    <Content Include="Content\print.css" />
-    <Content Include="Content\theme_light.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\avatar-1-big.jpg" />
-    <Content Include="images\avatar-1-small.jpg" />
-    <Content Include="images\avatar-1-xl.jpg" />
-    <Content Include="images\avatar-1.jpg" />
-    <Content Include="images\avatar-10.jpg" />
-    <Content Include="images\avatar-2.jpg" />
-    <Content Include="images\avatar-3.jpg" />
-    <Content Include="images\avatar-4.jpg" />
-    <Content Include="images\avatar-5.jpg" />
-    <Content Include="images\avatar-6.jpg" />
-    <Content Include="images\avatar-7.jpg" />
-    <Content Include="images\avatar-8.jpg" />
-    <Content Include="images\avatar-9.jpg" />
-    <Content Include="images\back-error-page.jpg" />
-    <Content Include="images\bg.png" />
-    <Content Include="images\bg_2.png" />
-    <Content Include="images\bg_3.png" />
-    <Content Include="images\bg_4.png" />
-    <Content Include="images\bg_5.png" />
-    <Content Include="images\blackandwhite.png" />
-    <Content Include="images\darkgrey.png" />
-    <Content Include="images\green.png" />
-    <Content Include="images\image01.jpg" />
-    <Content Include="images\image02.jpg" />
-    <Content Include="images\image03.jpg" />
-    <Content Include="images\image04.jpg" />
-    <Content Include="images\image05.jpg" />
-    <Content Include="images\image06.jpg" />
-    <Content Include="images\image07.jpg" />
-    <Content Include="images\image08.jpg" />
-    <Content Include="images\image09.jpg" />
-    <Content Include="images\image10.jpg" />
-    <Content Include="images\image11.jpg" />
-    <Content Include="images\image12.jpg" />
-    <Content Include="images\lightgrey.png" />
-    <Content Include="images\loading.gif" />
-    <Content Include="images\menu-white-arrow-rtl.png" />
-    <Content Include="images\menu-white-arrow.png" />
-    <Content Include="images\navy.png" />
-    <Content Include="images\timer-piece.png" />
-    <Content Include="images\your-logo-here.png" />
-    <Content Include="plugins\excanvas.min.js" />
-    <Content Include="plugins\respond.min.js" />
-    <Content Include="Scripts\charts.js" />
-    <Content Include="Scripts\form-calendar.js" />
-    <Content Include="Scripts\form-dropzone.js" />
-    <Content Include="Scripts\form-elements.js" />
-    <Content Include="Scripts\form-image-cropping.js" />
-    <Content Include="Scripts\form-validation.js" />
-    <Content Include="Scripts\form-wizard.js" />
-    <Content Include="Scripts\index.js" />
-    <Content Include="Scripts\login.js" />
-    <Content Include="Scripts\main.js" />
-    <Content Include="Scripts\maps.js" />
-    <Content Include="Scripts\pages-gallery.js" />
-    <Content Include="Scripts\pages-user-profile.js" />
-    <Content Include="Scripts\table-data.js" />
-    <Content Include="Scripts\table-export.js" />
-    <Content Include="Scripts\ui-animation.js" />
-    <Content Include="Scripts\ui-buttons.js" />
-    <Content Include="Scripts\ui-elements.js" />
-    <Content Include="Scripts\ui-modals.js" />
-    <Content Include="Scripts\ui-nestable.js" />
-    <Content Include="Scripts\ui-sliders.js" />
-    <Content Include="Scripts\ui-treeview.js" />
-    <Content Include="Scripts\utility-coming-soon.js" />
-    <Content Include="Scripts\utility-error404.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2944,74 +2874,8 @@
     <Folder Include="assets\plugins\jquery-inputlimiter\.svn\tmp\prop-base\" />
     <Folder Include="assets\plugins\jquery-inputlimiter\.svn\tmp\props\" />
     <Folder Include="assets\plugins\jquery-inputlimiter\.svn\tmp\text-base\" />
-    <Folder Include="Models\" />
-    <Folder Include="plugins\autosize\" />
-    <Folder Include="plugins\blockUI\" />
-    <Folder Include="plugins\bootbox\" />
-    <Folder Include="plugins\bootstrap-colorpalette\" />
-    <Folder Include="plugins\bootstrap-colorpicker\" />
-    <Folder Include="plugins\bootstrap-datepicker\" />
-    <Folder Include="plugins\bootstrap-daterangepicker\" />
-    <Folder Include="plugins\bootstrap-datetimepicker\" />
-    <Folder Include="plugins\bootstrap-fileupload\" />
-    <Folder Include="plugins\bootstrap-hover-dropdown\" />
-    <Folder Include="plugins\bootstrap-modal\" />
-    <Folder Include="plugins\bootstrap-paginator\" />
-    <Folder Include="plugins\bootstrap-social-buttons\" />
-    <Folder Include="plugins\bootstrap-switch\" />
-    <Folder Include="plugins\bootstrap-timepicker\" />
-    <Folder Include="plugins\bootstrap\" />
-    <Folder Include="plugins\ckeditor\" />
-    <Folder Include="plugins\colorbox\" />
-    <Folder Include="plugins\css3-animation\" />
-    <Folder Include="plugins\DataTables\" />
-    <Folder Include="plugins\datepicker\" />
-    <Folder Include="plugins\dropzone\" />
-    <Folder Include="plugins\dynatree\" />
-    <Folder Include="plugins\flot\" />
-    <Folder Include="plugins\font-awesome\" />
-    <Folder Include="plugins\fullcalendar\" />
-    <Folder Include="plugins\gmaps\" />
-    <Folder Include="plugins\gritter\" />
-    <Folder Include="plugins\iCheck\" />
-    <Folder Include="plugins\Jcrop\" />
-    <Folder Include="plugins\jqGrid\" />
-    <Folder Include="plugins\jQRangeSlider\" />
-    <Folder Include="plugins\jquery-address\" />
-    <Folder Include="plugins\jquery-cookie\" />
-    <Folder Include="plugins\jquery-easy-pie-chart\" />
-    <Folder Include="plugins\jQuery-File-Upload\" />
-    <Folder Include="plugins\jquery-inputlimiter\" />
-    <Folder Include="plugins\jQuery-Knob\" />
-    <Folder Include="plugins\jQuery-lib\" />
-    <Folder Include="plugins\jquery-maskmoney\" />
-    <Folder Include="plugins\jquery-migrate\" />
-    <Folder Include="plugins\jquery-mockjax\" />
-    <Folder Include="plugins\jQuery-Smart-Wizard\" />
-    <Folder Include="plugins\jQuery-Tags-Input\" />
-    <Folder Include="plugins\jquery-ui-touch-punch\" />
-    <Folder Include="plugins\jquery-ui\" />
-    <Folder Include="plugins\jquery-validation\" />
-    <Folder Include="plugins\jquery.maskedinput\" />
-    <Folder Include="plugins\jquery.pulsate\" />
-    <Folder Include="plugins\jquery.sparkline\" />
-    <Folder Include="plugins\ladda-bootstrap\" />
-    <Folder Include="plugins\less\" />
-    <Folder Include="plugins\moment\" />
-    <Folder Include="plugins\nestable\" />
-    <Folder Include="plugins\perfect-scrollbar\" />
-    <Folder Include="plugins\rainyday\" />
-    <Folder Include="plugins\select2\" />
-    <Folder Include="plugins\summernote\" />
-    <Folder Include="plugins\tableExport\" />
-    <Folder Include="plugins\typeaheadjs\" />
-    <Folder Include="plugins\wysihtml5\" />
-    <Folder Include="plugins\x-editable\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="assets\fonts\fonts\clip-font.eot" />
     <Content Include="assets\fonts\fonts\clip-font.ttf" />
@@ -3443,6 +3307,18 @@
     <Content Include="assets\plugins\summernote\summernote.less" />
     <Content Include="assets\plugins\tableExport\README.md" />
     <Content Include="assets\plugins\tableExport\tableExport.jquery.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cadastro\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cadastro\Computador.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITSupport.Contexto\ITSupport.Lib.csproj">
+      <Project>{9f5b8eb8-3286-4ea6-9938-548a2079cb6f}</Project>
+      <Name>ITSupport.Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

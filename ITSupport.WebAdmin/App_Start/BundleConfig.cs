@@ -22,7 +22,12 @@ namespace ITSupport.WebAdmin
                         "~/assets/plugins/jquery-cookie/jquery.cookie.js",
                         "~/assets/js/main.js"));
 
-           
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/assets/plugins/bootstrap/css/bootstrap.min.css",

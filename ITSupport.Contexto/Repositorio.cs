@@ -58,7 +58,7 @@ namespace ITSupport.Lib
             strQuery += string.Format(" Ativo = '{0}', ", Computador.Ativo);
             strQuery += string.Format(" LastUser = '{0}', ", Computador.LastUser);
             strQuery += string.Format(" DataUpdate = '{0}' ", sqlFormattedDate);
-            strQuery += string.Format(" WHERE ID = {0} ", Computador.ID);
+            strQuery += string.Format(" WHERE ID = {0} ", Computador.Id);
             using (contexto = new Contexto())
             {
                 contexto.ExecutaComando(strQuery);
@@ -67,7 +67,7 @@ namespace ITSupport.Lib
 
         public void Salvar(Computador computador)
         {
-            if (computador.ID > 0)
+            if (computador.Id > 0)
                 Alterar(computador);
             else
                 Inserir(computador);

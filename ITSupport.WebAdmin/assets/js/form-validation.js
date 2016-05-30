@@ -27,7 +27,7 @@ var FormValidator = function () {
             },
             ignore: "",
             rules: {
-                firstname: {
+                ServiceTag: {
                     minlength: 2,
                     required: true
                 },
