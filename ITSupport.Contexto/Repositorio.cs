@@ -8,15 +8,14 @@ namespace ITSupport.Lib
     public class Repositorio
     {
         private Contexto contexto;
-
-
+        
         public void Inserir(Computador computador)
         {
             var myDateTime = DateTime.Now;
 
             var strQuery = "";
             strQuery += " INSERT INTO tblComputador (Tipo, Fabricante, Modelo, ServiceTag, Processador, HardDrive, Memoria, Hostname, CentroCusto, Status, Ativo, DataCadastro, DataUpdate) ";
-            strQuery += string.Format(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}', `{12}`) ",
+            strQuery += string.Format(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}', '{12}') ",
 
                 computador.Tipo,
                 computador.Fabricante,
@@ -83,14 +82,9 @@ namespace ITSupport.Lib
                 var retornoDataReader = contexto.ExecutaComandoComRetorno(strQuery);
                 return retornoDataReader;
             }
-
-
-
         }
 
-
-
-
+        
         public void Excluir(int id)
         {
             using (contexto = new Contexto())
@@ -112,9 +106,10 @@ namespace ITSupport.Lib
         private List<string> TransformaReaderEmListaDeObjeto(SqlDataReader reader)
         {
             var lista = new List<string>();
+           
             while (reader.Read())
             {
-                lista.Add(reader.GetString(0));
+                lista.Add( reader.GetInt32(0) + " " +  reader.GetString(1));
             }
             reader.Close();
             return lista;
@@ -127,6 +122,42 @@ namespace ITSupport.Lib
 
             return listagem;
         }
+
+        public List<string> ListaSelect(string filtro)
+        {
+            string query = "";
+
+            if (filtro == "Fabricante")
+            {
+                query = "select distinct FabricanteID, FabricanteNome from tblFabricante order by FabricanteID ASC";
+            }
+
+            if (filtro == "Modelo")
+            {
+                query = "select distinct ModeloID, ModeloNome from tblModelo order by ModeloID ASC";
+            }
+
+            
+            
+
+            var lista = new List<string>();
+
+            using (contexto = new Contexto())
+            {
+                SqlDataReader reader = contexto.ExecutaComandoComRetorno(query);
+
+                while (reader.Read())
+                {
+                    lista.Add("<option value='" + reader.GetString(1) + "'>" + reader.GetString(1) + "</option>");
+                    //lista.Add(reader.GetInt32(0) + " " + reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return lista;
+
+        }
+
 
         public List<string> ListaModelo(string modelo)
         {
@@ -222,5 +253,31 @@ namespace ITSupport.Lib
             reader.Close();
             return usuarios;
         }
+
+
+        //Validacao
+        public bool CheckExist(string database, string column, string field)
+        {
+            var strQuery = "SELECT * from " + database + " where " + column + " = '" + field + "'";
+
+            using (contexto = new Contexto())
+            {
+                SqlDataReader retornoDataReader = contexto.ExecutaComandoComRetorno(strQuery);
+                if (retornoDataReader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+
+            
+        }
+
+
+       
     }
 }

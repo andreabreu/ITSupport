@@ -1,4 +1,4 @@
-﻿@model ITSupport.Lib.Computador
+﻿@model ITSupport.WebAdmin.Models.CadastroComputador
 
 @{
     ViewBag.Title = "Computador";
@@ -48,16 +48,42 @@
                 <div class="panel-heading">
                     <i class="fa fa-external-link-square"></i>
                     Formulario de Cadastro
+
+                   
                 </div>
                 <div class="panel-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">
+                            <button data-dismiss="alert" class="close">
+                                ×
+                            </button>
+                            <i class="fa fa-check-circle"></i>
+                            <strong>Sucesso!</strong> @TempData["Success"].ToString()
+                        </div>
+                    }
+
+                    @if (TempData["Fail"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            <button data-dismiss="alert" class="close">
+                                ×
+                            </button>
+                            <i class="fa fa-times-circle"></i>
+                            <strong>Falha!</strong> @TempData["Fail"].ToString()
+                        </div>
+                    }
+
+
+
                     <p>
                         <h3>
                             <i class="fa fa-desktop"></i> Hardware
                         </h3>
                     </p>
-                    <hr />
+                    <hr/>
 
-                    @using (Html.BeginForm("Computador", "Cadastro", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", id = "form" }))
+                    @using (Html.BeginForm("Computador", "Cadastro", FormMethod.Post, new {@class = "form-horizontal", id = "form"}))
                     {
                         @Html.ValidationSummary(true)
                         <div class="form-group">
@@ -72,37 +98,25 @@
                         <div class="form-group">
                             <div class="col-sm-3 col-sm-offset-2">
                                 <select name="Fabricante" class="form-control">
-                                    <option value="Dell Inc.">Dell Inc.</option>
-                                    <option value="Lenovo">Lenovo</option>
-                                    <option value="Hewlett Packard">Hewlett Packard</option>
+                                    @foreach (var item in ViewBag.Fabricantes)
+                                    {
+                                        @Html.Raw(item)
+                                    }
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <select name="Modelo" class="form-control">
-                                    <optgroup label="Hewlett Packard">
-                                        @*@foreach (var item in ViewBag.ListaModeloHP)
-                                            {
-                                                <option value="@item">@item</option>
-                                            }*@
-                                    </optgroup>
-                                    <optgroup label="Dell Inc.">
-                                        @*@foreach (var item in ViewBag.ListaModeloDell)
-                                            {
-                                                <option value="@item">@item</option>
-                                            }*@
-                                    </optgroup>
-                                    <optgroup label="Lenovo">
-                                        @*@foreach (var item in ViewBag.ListaModeloLenovo)
-                                            {
-                                                <option value="@item">@item</option>
-                                            }*@
-
-                                    </optgroup>
+                                    @foreach (var item in ViewBag.Modelos)
+                                    {
+                                        @Html.Raw(item)
+                                    }
                                 </select>
                             </div>
                             <div class="col-sm-3">
-                                @Html.EditorFor(m => m.ServiceTag, new { htmlAttributes = new { @class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.ServiceTag) } })
-                                <div class="help-block"><p class="text-danger">@Html.ValidationMessageFor(model => model.ServiceTag)</p> </div>
+                                @Html.EditorFor(m => m.ServiceTag, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.ServiceTag)}})
+                                <div class="help-block">
+                                    <p class="text-danger">@Html.ValidationMessageFor(model => model.ServiceTag)</p>
+                                </div>
                             </div>
 
                         </div>
@@ -148,26 +162,30 @@
                             <i class="fa fa-building"></i> Alocacao
                         </h3>
                         <p>
-                            Preencha com os dados em que o equipamento esta alocado, informando sua Localidade e Centro de Custo. <br /><small><span class="label label-warning"> Aviso:</span>Dados inseridos incorretamente fara com que o Objeto no ActiveDirectory seja criado com local/nome errado e sera passada uma informacao incorreta para a Controladoria.</small>
+                            Preencha com os dados em que o equipamento esta alocado, informando sua Localidade e Centro de Custo. <br/><small><span class="label label-warning"> Aviso:</span>Dados inseridos incorretamente fara com que o Objeto no ActiveDirectory seja criado com local/nome errado e sera passada uma informacao incorreta para a Controladoria.</small>
                         </p>
-                        <hr />
+                        <hr/>
                         <div class="form-group">
 
                             <div class="col-sm-4 col-sm-offset-2">
                                 <span class="input-help">
-                                    @Html.EditorFor(m => m.Hostname, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.Hostname)}})
-                                   
-                                    <i class="help-button popovers" data-html="true" title="" data-content="Padrao: <i class=text-primary>[PAIS]</i> <i class=text-success>[LOCAL]</i> <i class=text-info>[TIPO]</i> <i class=text-warning>[ATIVO]</i><br />Ex.: Desktop de SP: <strong class=text-primary>BR</strong><strong class=text-success>SP</strong><strong class=text-warning>123456</strong><br />Ex.: Notebook de SP: <strong class=text-primary>BR</strong><strong class=text-success>SP</strong><strong class=text-info>N</strong><strong class=text-warning>123456</strong><br />Lista de padrao de Locais:<ul><li>Campinas - <strong>CPS</strong></li><li>Curitba - <strong>CTA</strong></li><li>Porto Alegre - <strong>POA</strong></li><li>Ribeirao Preto - <strong>RAO</strong></li><li>Rio de Janeiro - <strong>RJ</strong></li><li>Salvador - <strong>SAO</strong></li><li>Sao Paulo - <strong>SP</strong></li><li>Vitoria - <strong>ES</strong></li></ul>" data-placement="right" data-trigger="hover" data-rel="popover" data-original-title="Padrao de Hostname"></i>
-                                </span>
-                                <div class="help-block"><p class="text-danger">@Html.ValidationMessageFor(model => model.Hostname)</p> </div>
+                                        @Html.EditorFor(m => m.Hostname, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.Hostname)}})
+
+                                        <i class="help-button popovers" data-html="true" title="" data-content="Padrao: <i class=text-primary>[PAIS]</i> <i class=text-success>[LOCAL]</i> <i class=text-info>[TIPO]</i> <i class=text-warning>[ATIVO]</i><br />Ex.: Desktop de SP: <strong class=text-primary>BR</strong><strong class=text-success>SP</strong><strong class=text-warning>123456</strong><br />Ex.: Notebook de SP: <strong class=text-primary>BR</strong><strong class=text-success>SP</strong><strong class=text-info>N</strong><strong class=text-warning>123456</strong><br />Lista de padrao de Locais:<ul><li>Campinas - <strong>CPS</strong></li><li>Curitba - <strong>CTA</strong></li><li>Porto Alegre - <strong>POA</strong></li><li>Ribeirao Preto - <strong>RAO</strong></li><li>Rio de Janeiro - <strong>RJ</strong></li><li>Salvador - <strong>SAO</strong></li><li>Sao Paulo - <strong>SP</strong></li><li>Vitoria - <strong>ES</strong></li></ul>" data-placement="right" data-trigger="hover" data-rel="popover" data-original-title="Padrao de Hostname"></i>
+                                    </span>
+                                <div class="help-block">
+                                    <p class="text-danger">@Html.ValidationMessageFor(model => model.Hostname)</p>
+                                </div>
                             </div>
 
                             <div class="col-sm-5">
                                 <span class="input-icon">
-                                    @Html.EditorFor(m => m.Ativo, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.Ativo)}})
-                                    <i class="fa fa-barcode">&nbsp;&nbsp;</i>
-                                </span>
-                                <div class="help-block"><p class="text-danger">@Html.ValidationMessageFor(model => model.Ativo)</p> </div>
+                                        @Html.EditorFor(m => m.Ativo, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.Ativo)}})
+                                        <i class="fa fa-barcode">&nbsp;&nbsp;</i>
+                                    </span>
+                                <div class="help-block">
+                                    <p class="text-danger">@Html.ValidationMessageFor(model => model.Ativo)</p>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -194,18 +212,18 @@
                             </div>
                             <div class="col-sm-3">
                                 <span class="input-icon">
-                                    <select id="CentroCusto" name="CentroCusto" class="form-control">
-                                        @*@foreach (var item in ViewBag.ListaCentroCusto)
-                                            {
-                                                <option value="@item">@item</option>
-                                            }*@
-                                    </select>
-                                    <i class="fa fa-briefcase">&nbsp;&nbsp;</i>
-                                </span>
+                                        <select id="CentroCusto" name="CentroCusto" class="form-control">
+                                            @*@foreach (var item in ViewBag.ListaCentroCusto)
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }*@
+                                        </select>
+                                        <i class="fa fa-briefcase">&nbsp;&nbsp;</i>
+                                    </span>
 
                             </div>
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="form-group">
                             <div class="col-sm-3 col-sm-offset-2">
                                 <div class="checkbox">
@@ -223,7 +241,7 @@
                             </div>
 
                             <div class="col-sm-3 col-sm-offset-3">
-                                <input type="submit" name="submit" value="Enviar" class="btn btn-primary" />
+                                <input type="submit" name="submit" value="Enviar" class="btn btn-primary"/>
                                 <a href="~/" class="btn btn-danger">Cancelar </a>
                             </div>
                         </div>

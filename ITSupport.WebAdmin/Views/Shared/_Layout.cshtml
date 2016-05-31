@@ -73,7 +73,7 @@
 
                 <ul class="main-navigation-menu">
                     <li>
-                        <a href="/Home">
+                        <a href='@Url.Action("Index", "Home")'>
                             <i class="clip-home-3"></i>
                             <span class="title"> Home </span><span class="selected"></span>
                         </a>
@@ -200,17 +200,16 @@
                                     Equipamento <i class="icon-arrow"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="#"><i class="fa fa-desktop"></i>Computador</a></li>
-                                    <li><a href="#"><i class="fa fa-storage"></i>Servidor</a></li>
-                                    
+                                    <li><a href='@Url.Action("Computador", "Cadastro")'><i class="fa fa-desktop"></i>Computador</a></li>
+                                    <li><a href='@Url.Action("Computador", "Cadastro")'><i class="fa fa-storage"></i>Servidor</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Fabricante</a></li>
-                            <li><a href="#">Fornecedor</a></li>
-                            <li><a href="#">Licenca de Software</a></li>
-                            <li><a href="#">Modelo</a></li>
-                            <li><a href="#">Pedido de Compra</a></li>
-                            <li><a href="#">Usuario</a></li>
+                            <li><a href='@Url.Action("Fabricante", "Cadastro")'>Fabricante</a></li>
+                            <li><a href='@Url.Action("Fornecedor", "Cadastro")'>Fornecedor</a></li>
+                            <li><a href='@Url.Action("LicencaDeSoftware", "Cadastro")'>Licenca de Software</a></li>
+                            <li><a href='@Url.Action("Modelo", "Cadastro")'>Modelo</a></li>
+                            <li><a href='@Url.Action("PedidoDeCompra", "Cadastro")'">Pedido de Compra</a></li>
+                            <li><a href='@Url.Action("Usuario", "Cadastro")'>Usuario</a></li>
                             
                             
 

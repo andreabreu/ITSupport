@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ITSupport.WebAdmin.Models
 {
-    public class CadastroModel
+    public class CadastroComputador
     {
         public int Id { get; set; }
 
@@ -16,8 +16,9 @@ namespace ITSupport.WebAdmin.Models
         public string Localidade { get; set; }
         public string CentroCusto { get; set; }
         public string Status { get; set; } //Em Uso, em Reparo, bla bla
+        [Required]
+        [Remote("DoesAtivoExist", "Cadastro", HttpMethod = "POST", ErrorMessage = "Este ativo ja esta cadastrado no Sistema, favor validar o Inventario.")]
         public string Ativo { get; set; }
-        public string LastUser { get; set; }
         public string Dominio { get; set; }
 
         //Hardware
@@ -30,19 +31,14 @@ namespace ITSupport.WebAdmin.Models
         public string HardDrive { get; set; }
         [Required]
         [Display(Name = "Service TAG")]
-        [Remote("DoesServiceTagExist", "Cadastro", HttpMethod = "POST", ErrorMessage = "User name already exists. Please enter a different user name.")]
+        [Remote("DoesServiceTagExist", "Cadastro", HttpMethod = "POST", ErrorMessage = "Esta Service Tag ja esta cadastrado no sistema, favor validar o Inventario.")]
         public string ServiceTag { get; set; } //Win32_BIOS - SerialNumber
 
-        public string BiosVersion { get; set; } //Win32_BIOS - SMBIOSBIOSVersion
-        public string DateBios { get; set; } //Win32_BIOS - Description
-        public string FirstMonitor { get; set; } //Informações do Primeiro Monitor
-        public string SecondMonitor { get; set; } //Informações do Segundo Monitor
-
-
-        //McAfee Information
-        public string AgentMcAfee { get; set; }
-        public string EpoMcAfee { get; set; }
-        public string EngineMcAfee { get; set; }
-        public string DatMcAfee { get; set; }
     }
+
+   
+
+   
+
+
 }
