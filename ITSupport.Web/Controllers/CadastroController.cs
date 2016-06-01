@@ -37,7 +37,7 @@ namespace ITSupport.Web.Controllers
             if (ModelState.IsValid)
             {
                 //Repo.ChecaTagExiste(computador);
-                Repo.Salvar(computador);
+                Repo.InserirComputador(computador);
                 return RedirectToAction("Equipamento", new { Computer = computador.Hostname });
             }
             else

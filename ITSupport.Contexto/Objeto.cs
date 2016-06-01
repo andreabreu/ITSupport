@@ -11,7 +11,7 @@ namespace ITSupport.Lib
         public string Username { get; set; } //sAMAccountName\\
         public string Departamento { get; set; } //description\\
         public string Email { get; set; } //mail\\
-        public int Ramal { get; set; } //telephoneNumber
+        public string Ramal { get; set; } //telephoneNumber
         public string Cargo { get; set; } //title
         public string Superior { get; set; } //manager
         public string ScriptPath { get; set; } //scriptPath

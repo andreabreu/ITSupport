@@ -65,6 +65,35 @@ namespace ITSupport.Lib
             }
         }
 
+        public void InserirUsuario(Usuario usuario)
+        {
+            var myDateTime = DateTime.Now;
+
+            var strQuery = "";
+            strQuery += " INSERT INTO tblUsuario (Nome, Username, Departamento, Email, Ramal, Cargo, Superior, ScriptPath, Matricula, Created, AccountExpirationDate, Enabled, LastLogon, LastPasswordSet, Domain) ";
+            strQuery += string.Format(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}', '{12}', '{13}', '{14}') ",
+
+                usuario.Nome,
+                usuario.Username,
+                usuario.Departamento,
+                usuario.Email,
+                usuario.Ramal,
+                usuario.Cargo,
+                usuario.Superior,
+                usuario.ScriptPath,
+                usuario.Matricula,
+                usuario.Created,
+                usuario.AccountExpirationDate,
+                usuario.Enabled,
+                usuario.LastLogon,
+                usuario.LastPasswordSet,
+                "br.aon.bz");
+            using (contexto = new Contexto())
+            {
+                contexto.ExecutaComando(strQuery);
+            }
+        }
+
 
         public List<string> ListaSelect(string filtro)
         {
@@ -133,7 +162,7 @@ namespace ITSupport.Lib
             }
         }
 
-       
+
 
         public SqlDataReader ChecaTagExiste(Computador computador)
         {
@@ -147,7 +176,7 @@ namespace ITSupport.Lib
             }
         }
 
-        
+
         public void Excluir(int id)
         {
             using (contexto = new Contexto())
@@ -169,10 +198,10 @@ namespace ITSupport.Lib
         private List<string> TransformaReaderEmListaDeObjeto(SqlDataReader reader)
         {
             var lista = new List<string>();
-           
+
             while (reader.Read())
             {
-                lista.Add( reader.GetInt32(0) + " " +  reader.GetString(1));
+                lista.Add(reader.GetInt32(0) + " " + reader.GetString(1));
             }
             reader.Close();
             return lista;
@@ -186,7 +215,7 @@ namespace ITSupport.Lib
             return listagem;
         }
 
-      
+
 
 
         public List<string> ListaModelo(string modelo)
@@ -304,10 +333,10 @@ namespace ITSupport.Lib
 
             }
 
-            
+
         }
 
 
-       
+
     }
 }

@@ -32,7 +32,7 @@ namespace ITSupport.Lib
             usuario.Username = rs.GetDirectoryEntry().Properties["samaccountname"].Value.ToString();
             usuario.Email = rs.GetDirectoryEntry().Properties["mail"].Value.ToString();
 
-            usuario.Ramal = (int)rs.GetDirectoryEntry().Properties["telephoneNumber"].Value;
+            usuario.Ramal = rs.GetDirectoryEntry().Properties["telephoneNumber"].Value.ToString();
             usuario.Cargo = rs.GetDirectoryEntry().Properties["title"].Value.ToString();
             usuario.Superior = rs.GetDirectoryEntry().Properties["manager"].Value.ToString().Substring(3).Split(',')[0];
             usuario.Departamento = rs.GetDirectoryEntry().Properties["Description"].Value.ToString();
