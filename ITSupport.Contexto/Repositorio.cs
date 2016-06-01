@@ -8,8 +8,8 @@ namespace ITSupport.Lib
     public class Repositorio
     {
         private Contexto contexto;
-        
-        public void Inserir(Computador computador)
+
+        public void InserirComputador(Computador computador)
         {
             var myDateTime = DateTime.Now;
 
@@ -35,6 +35,75 @@ namespace ITSupport.Lib
                 contexto.ExecutaComando(strQuery);
             }
         }
+
+        public void InserirFabricante(CadastroFabricante fabricante)
+        {
+            var strQuery = "";
+            strQuery += " INSERT INTO tblFabricante (FabricanteNome, CNPJ, WebSite) ";
+            strQuery += string.Format(" VALUES ('{0}','{1}','{2}') ",
+
+                fabricante.FabricanteNome,
+                fabricante.CNPJ,
+                fabricante.WebSite);
+            using (contexto = new Contexto())
+            {
+                contexto.ExecutaComando(strQuery);
+            }
+        }
+
+        public void InserirModelo(CadastroModelo modelo)
+        {
+            var strQuery = "";
+            strQuery += " INSERT INTO tblModelo (Fabricante, ModeloNome) ";
+            strQuery += string.Format(" VALUES ('{0}','{1}') ",
+
+                modelo.Fabricante,
+                modelo.ModeloNome);
+            using (contexto = new Contexto())
+            {
+                contexto.ExecutaComando(strQuery);
+            }
+        }
+
+
+        public List<string> ListaSelect(string filtro)
+        {
+            string query = "";
+
+            if (filtro == "Fabricante")
+            {
+                query = "select distinct FabricanteID, FabricanteNome from tblFabricante order by FabricanteID ASC";
+            }
+
+            if (filtro == "Modelo")
+            {
+                query = "select distinct Fabricante, ModeloNome from tblModelo order by Fabricante ASC";
+            }
+
+            if (filtro == "Escritorio")
+            {
+                query = "select Nome, Cidade from tblEscritorio order by Cidade ASC";
+            }
+
+
+            var lista = new List<string>();
+
+            using (contexto = new Contexto())
+            {
+                SqlDataReader reader = contexto.ExecutaComandoComRetorno(query);
+
+                while (reader.Read())
+                {
+                    lista.Add("<option value='" + reader.GetString(1) + "'>" + reader.GetString(1) + "</option>");
+                    //lista.Add(reader.GetInt32(0) + " " + reader.GetString(1));
+                }
+                reader.Close();
+            }
+
+            return lista;
+
+        }
+
 
         private void Alterar(Computador Computador)
         {
@@ -64,13 +133,7 @@ namespace ITSupport.Lib
             }
         }
 
-        public void Salvar(Computador computador)
-        {
-            if (computador.Id > 0)
-                Alterar(computador);
-            else
-                Inserir(computador);
-        }
+       
 
         public SqlDataReader ChecaTagExiste(Computador computador)
         {
@@ -123,40 +186,7 @@ namespace ITSupport.Lib
             return listagem;
         }
 
-        public List<string> ListaSelect(string filtro)
-        {
-            string query = "";
-
-            if (filtro == "Fabricante")
-            {
-                query = "select distinct FabricanteID, FabricanteNome from tblFabricante order by FabricanteID ASC";
-            }
-
-            if (filtro == "Modelo")
-            {
-                query = "select distinct ModeloID, ModeloNome from tblModelo order by ModeloID ASC";
-            }
-
-            
-            
-
-            var lista = new List<string>();
-
-            using (contexto = new Contexto())
-            {
-                SqlDataReader reader = contexto.ExecutaComandoComRetorno(query);
-
-                while (reader.Read())
-                {
-                    lista.Add("<option value='" + reader.GetString(1) + "'>" + reader.GetString(1) + "</option>");
-                    //lista.Add(reader.GetInt32(0) + " " + reader.GetString(1));
-                }
-                reader.Close();
-            }
-
-            return lista;
-
-        }
+      
 
 
         public List<string> ListaModelo(string modelo)

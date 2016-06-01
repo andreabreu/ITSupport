@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+        <div class="content">
+            @RenderBody()
+        </div>
+    @Scripts.Render("~/bundles/plugins")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+        });
+    </script>
+
+</body>
+</html>

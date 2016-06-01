@@ -36,6 +36,15 @@ namespace ITSupport.WebAdmin.Models
 
     }
 
+    public class CadastroFabricante
+    {
+        [Required]
+        public string FabricanteNome { get; set; }
+        [Required]
+        public string CNPJ { get; set; }
+        public string WebSite { get; set; }
+
+    }
    
 
    

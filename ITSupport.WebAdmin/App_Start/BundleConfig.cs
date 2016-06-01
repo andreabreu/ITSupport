@@ -28,6 +28,10 @@ namespace ITSupport.WebAdmin
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquerymodal").Include(
+                        "~/assets/plugins/bootstrap-modal/js/bootstrap-modal.js",
+                        "~/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js",
+                        "~//assets/js/ui-modals.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/assets/plugins/bootstrap/css/bootstrap.min.css",

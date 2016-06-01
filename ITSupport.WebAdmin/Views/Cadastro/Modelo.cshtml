@@ -1,0 +1,78 @@
+﻿@model ITSupport.Lib.CadastroModelo
+
+@{
+    ViewBag.Title = "Modelo";
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+<div class="container">
+
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- start: TEXT FIELDS PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-external-link-square"></i>
+                    Cadastro de Modelo
+                </div>
+                <div class="panel-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">
+                            <button data-dismiss="alert" class="close">
+                                ×
+                            </button>
+                            <i class="fa fa-check-circle"></i>
+                            <strong>Sucesso!</strong> @TempData["Success"].ToString()
+                        </div>
+                    }
+
+                    @if (TempData["Fail"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            <button data-dismiss="alert" class="close">
+                                ×
+                            </button>
+                            <i class="fa fa-times-circle"></i>
+                            <strong>Falha!</strong> @TempData["Fail"].ToString()
+                        </div>
+                    }
+
+
+                    @using (Html.BeginForm("Modelo", "Cadastro", FormMethod.Post, new {@class = "form-horizontal", id = "form"}))
+                    {
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-offset-1">
+                                @Html.LabelFor(m => m.Fabricante)
+                            </div>
+                            <div class="col-sm-9">
+                                <select name="Fabricante" class="form-control">
+                                    @foreach (var item in ViewBag.Fabricantes)
+                                    {
+                                        @Html.Raw(item)
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-offset-1">
+                                @Html.LabelFor(m => m.ModeloNome)
+                            </div>
+                            <div class="col-sm-9">
+                                @Html.EditorFor(m => m.ModeloNome, new {htmlAttributes = new {@class = "form-control  input-md", placeholder = Html.DisplayNameFor(m => m.ModeloNome)}})
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+
+                            <div class="col-sm-9">
+                                <input class="btn btn-green" type="submit" name="submit" value="Cadastrar"/>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: PAGE CONTENT-->
+</div>

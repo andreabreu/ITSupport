@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    <link href="/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -95,18 +97,8 @@
                                             Computadores <i class="icon-arrow"></i>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-desktop"></i>
-                                                    Desktops
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-laptop"></i>
-                                                    Laptops
-                                                </a>
-                                            </li>
+                                            <li><a href="#"><i class="fa fa-desktop"></i> Desktops</a></li>
+                                            <li> <a href="#"><i class="fa fa-laptop"></i> Laptops</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -114,8 +106,8 @@
                                             Telefonia <i class="icon-arrow"></i>
                                         </a>
                                         <ul class="sub-menu">
-                                            <li><a href="#"><i class="fa fa-times"></i>Telefonia Fixa</a></li>
-                                            <li><a href="#"><i class="fa fa-times"></i>Telefonia Movel</a></li>
+                                            <li><a href="#"><i class="fa fa-times"></i> Telefonia Fixa</a></li>
+                                            <li><a href="#"><i class="fa fa-times"></i> Telefonia Movel</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -125,14 +117,15 @@
                                     Localidade <i class="icon-arrow"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="#"><i class="fa fa-map"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
-                                    <li><a href="#"><i class="fa fa-map-o"></i>Local</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> São Paulo</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Campinas</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Ribeirão Preto</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Rio de Janeiro</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Curitiba</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Porto Alegre</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Vitória</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Salvador</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i> Recife</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -140,8 +133,8 @@
                                     Telefonia <i class="icon-arrow"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="#"><i class="fa fa-times"></i>Telefonia Fixa</a></li>
-                                    <li><a href="#"><i class="fa fa-times"></i>Telefonia Movel</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Telefonia Fixa</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Telefonia Movel</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -149,8 +142,8 @@
                                     Clientes <i class="icon-arrow"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="#"><i class="fa fa-times"></i>Microcity</a></li>
-                                    <li><a href="#"><i class="fa fa-times"></i>Infinity</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Microcity</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> Infinity</a></li>
                                 </ul>
                             </li>
 
@@ -164,9 +157,9 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="#">Admissao</a>
-                                <a href="#">Demissao</a>
-                                <a href="#">Transferencia</a>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Admissao</a>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Demissao</a>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Transferencia</a>
                             </li>
 
                         </ul>
@@ -180,8 +173,8 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="#">Aon Remote Access</a>
-                                <a href="#">Emprestimo</a>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Aon Remote Access</a>
+                                <a href="#"><i class="fa fa-angle-double-right"></i> Emprestimo</a>
                             </li>
 
                         </ul>
@@ -189,29 +182,17 @@
 
                     <li>
                         <a href="javascript:;" class="active">
-                            <i class="clip-list"></i>
+                            <i class="clip-pencil"></i>
                             <span class="title"> Cadastrar </span>
                             <i class="icon-arrow"></i>
                         </a>
                         <ul class="sub-menu">
-                            
-                            <li>
-                                <a href="javascript:;">
-                                    Equipamento <i class="icon-arrow"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li><a href='@Url.Action("Computador", "Cadastro")'><i class="fa fa-desktop"></i> Computador</a></li>
-                                    <li><a href='@Url.Action("Computador", "Cadastro")'><i class="fa fa-storage"></i> Servidor</a></li>
-                                </ul>
-                            </li>
-                            <li><a href='@Url.Action("Fabricante", "Cadastro")'>Fabricante</a></li>
-                            <li><a href='@Url.Action("Fornecedor", "Cadastro")'>Fornecedor</a></li>
-                            <li><a href='@Url.Action("LicencaDeSoftware", "Cadastro")'>Licenca de Software</a></li>
-                            <li><a href='@Url.Action("Modelo", "Cadastro")'>Modelo</a></li>
-                            <li><a href='@Url.Action("PedidoDeCompra", "Cadastro")'">Pedido de Compra</a></li>
-                            <li><a href='@Url.Action("Usuario", "Cadastro")'>Usuario</a></li>
-                            
-                            
+
+                            <li><a href='@Url.Action("Computador", "Cadastro")'><i class="fa fa-angle-double-right"></i> Computador</a></li>
+                            <li><a href="#" onclick="openModal('/Cadastro/Fabricante');"><i class="fa fa-angle-double-right"></i> Fabricante</a></li>
+                            <li><a href="#" onclick="openModal('/Cadastro/Modelo');"><i class="fa fa-angle-double-right"></i> Modelo</a></li>
+
+
 
                         </ul>
                     </li>
@@ -236,13 +217,42 @@
 
     @Scripts.Render("~/bundles/plugins")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerymodal")
 
 
-<script>
-        jQuery(document).ready(function () {
-            Main.init();
-        });
+    <div id="frame" class="modal fade" tabindex="-1" data-width="760" style="display: none; width: 760px; margin-left: -379px; margin-top: -249px;" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×
+            </button>
+
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="@Url.Action("Fabricante", "Cadastro")" style="border: 0; width: 100%; height: 380px" name="iframe" scrolling="auto" id="iframemodal"></iframe>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+
+    <script>
+        jQuery(document)
+            .ready(function () {
+                Main.init();
+            });
+
+
+        function openModal(url) {
+
+            $('#frame').on('show', function () {
+                $('#iframemodal').attr("src", url);
+            });
+            $('#frame').modal({ show: true });
+        }
     </script>
+
 
 </body>
 </html>
