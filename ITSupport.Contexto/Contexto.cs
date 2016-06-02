@@ -13,7 +13,7 @@ namespace ITSupport.Lib
         {
             string srtLocal = @"Data Source =.\SQLEXPRESS; Initial Catalog = dbITSupport; Integrated Security = SSPI;";
             string strAon = "server=BRSP015884;Trusted_Connection=yes;database=dbITSupport; user id=andre_abreu_trp;password=Suporte01; connection timeout=5";
-            minhaConexao = new SqlConnection(strAon);
+            minhaConexao = new SqlConnection(srtLocal);
             minhaConexao.Open();
         }
 
