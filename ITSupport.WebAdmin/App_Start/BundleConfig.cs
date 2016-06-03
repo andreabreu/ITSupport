@@ -20,6 +20,7 @@ namespace ITSupport.WebAdmin
                         "~/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js",
                         "~/assets/plugins/less/less-1.5.0.min.js",
                         "~/assets/plugins/jquery-cookie/jquery.cookie.js",
+                        "~/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js",
                         "~/assets/js/main.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -31,7 +32,12 @@ namespace ITSupport.WebAdmin
             bundles.Add(new ScriptBundle("~/bundles/jquerymodal").Include(
                         "~/assets/plugins/bootstrap-modal/js/bootstrap-modal.js",
                         "~/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js",
-                        "~//assets/js/ui-modals.js"));
+                        "~/assets/js/ui-modals.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquerywizard").Include(
+                        "~/assets/plugins/jQuery-Smart-Wizard/js/jquery.smartWizard.js",
+                        "~/assets/js/form-wizard.js",
+                        "~/assets/plugins/jquery-validation/dist/jquery.validate.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/assets/plugins/bootstrap/css/bootstrap.min.css",
@@ -43,6 +49,9 @@ namespace ITSupport.WebAdmin
                       "~/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css",
                       "~/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css",
                       "~/assets/css/theme_light.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/buscaCep").Include(
+                "~/assets/js/BuscaCep.js"));
 
 
 

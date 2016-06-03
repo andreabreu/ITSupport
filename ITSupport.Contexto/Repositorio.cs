@@ -114,6 +114,12 @@ namespace ITSupport.Lib
                 query = "select Nome, Cidade from tblEscritorio order by Cidade ASC";
             }
 
+            if (filtro == "CentroDeCusto")
+            {
+                query = "Select CentroDeCustoID, CentroDeCustoNome from tblCentroDeCusto order by CentroDeCustoID ASC";
+                
+            }
+
 
             var lista = new List<string>();
 
@@ -123,8 +129,16 @@ namespace ITSupport.Lib
 
                 while (reader.Read())
                 {
-                    lista.Add("<option value='" + reader.GetString(1) + "'>" + reader.GetString(1) + "</option>");
-                    //lista.Add(reader.GetInt32(0) + " " + reader.GetString(1));
+                    if (filtro == "CentroDeCusto")
+                    {
+                        lista.Add("<option value='" + reader.GetString(0) + " - " + reader.GetString(1) + "'>" +
+                                  reader.GetString(0) + " - " + reader.GetString(1) + "</option>");
+                    }
+                    else
+                    {
+                        lista.Add("<option value='" + reader.GetString(1) + "'>" + reader.GetString(1) + "</option>");
+                    }
+                    
                 }
                 reader.Close();
             }

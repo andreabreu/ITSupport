@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
@@ -31,72 +32,6 @@ namespace ITSupport.Lib
         public DateTime LastPasswordSet { get; set; }
         //Um Nullable DateTime que especifica a última data e hora em que a senha foi definida para esta conta.
         
-    }
-
-    public class NewUsuario
-    {
-        //Informacoes do Colaborador
-        public DateTime DataInicio { get; set; }
-        public string Nome { get; set; }
-        public DateTime DataNascimento { get; set; }
-        
-        public string Rg { get; set; }
-        public string Cpf { get; set; }
-        public string TelefoneResidencial { get; set; }
-        public string TelefoneCelular { get; set; }
-        public string EmailPessoal { get; set; }
-        public string Endereco { get; set; }
-        public string Cep { get; set; }
-        public string Rua { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string NomeMae { get; set; }
-
-        public string Cargo { get; set; }
-        public int JobLeveling { get; set; }
-        public string VinculoEmpregaticio { get; set; }
-        public int Matricula { get; set; }
-        public int IdPeopleSoft { get; set; }
-        public string CentroDeCusto { get; set; }
-        public string Area { get; set; }
-        public string UnidadeDeNegocio { get; set; }
-        public string Gestor { get; set; }
-        public int MatriculaGestor { get; set; }
-        public string LocalDeTrabalho { get; set; }
-        public string Cliente { get; set; } //S ou N
-        public string MotivoVaga { get; set; }
-        public string Efetivacao { get; set; }
-
-        public string VinculoAnterior { get; set; }
-
-
-        //Informacoes sobre Infra-Estrutura
-        public string AlteracaoLayout { get; set; }
-        public string NovaEstacao { get; set; }
-        public string NovoEquipamento { get; set; }
-        public string NovoRamal { get; set; }
-        public string NumeroRamal { get; set; }
-        public string TipoEquipamento { get; set; }
-
-        //Informacoes para E-mail
-        public string GrupoDeEmail { get; set; }
-        public string SugestaoDeEmail { get; set; }
-
-        //Mapeamento de Perfis
-        public string AcessoRede { get; set; }
-        public string AcessoSalesForce { get; set; }
-        public string AcessoAonAccess { get; set; }
-        public string AcessoGams { get; set; }
-        public string AcessoRelatoriosWeb { get; set; }
-        public string AcessoMicrosiga { get; set; }
-        public string AcessoCol { get; set; }
-        public string AcessoInfraClient { get; set; }
-        public string AcessoInfraManut { get; set; }
-        public string OutrosAcessos { get; set; }
-
-        public DateTime DataSolicitacao { get; set; }
-
     }
 
     public class Computador
@@ -144,6 +79,143 @@ namespace ITSupport.Lib
         public string descricao { get; set; }
     }
 
+    //Controller RecursosHumanos
+    public class Admissao
+    {
+        //Informacoes do Colaborador
+        public DateTime DataInicio { get; set; }
+
+        [Required]
+        [Display(Name = "Nome Completo: ")]
+        public string Nome { get; set; }
+
+        [Required]
+        [Display(Name = "Data de Nascimento: ")]
+        public DateTime DataNascimento { get; set; }
+        
+        [Required]
+        [Display(Name = "R.G.: ")]
+        public string Rg { get; set; }
+
+        [Required]
+        [Display(Name = "C.P.F: ")]
+        public string Cpf { get; set; }
+
+        [Required]
+        [Display(Name = "Telefone Residencial: ")]
+        public string TelefoneResidencial { get; set; }
+
+        
+        [Required]
+        [Display(Name = "Telefone Celular: ")]
+        public string TelefoneCelular { get; set; }
+
+        [Required]
+        [Display(Name = "Email Pessoal: ")]
+        public string EmailPessoal { get; set; }
+
+
+        [Required]
+        [Display(Name = "Nome da Mae: ")]
+        public string NomeMae { get; set; }
+
+        [Required]
+        [Display(Name = "Endereco: ")]
+        public string Endereco { get; set; }
+
+        [Required]
+        [Display(Name = "CEP: ")]
+        public string Cep { get; set; }
+
+        [Required]
+        [Display(Name = "Bairro: ")]
+        public string Bairro { get; set; }
+
+        [Required]
+        [Display(Name = "Cidade: ")]
+        public string Cidade { get; set; }
+
+        [Required]
+        [Display(Name = "Estado: ")]
+        public string Estado { get; set; }
+
+
+        /// <summary>
+        /// INFORMACOOES DE CONTRATACAO
+        /// </summary>
+        [Required]
+        [Display(Name = "Cargo: ")]
+        public string Cargo { get; set; }
+
+        public int JobLeveling { get; set; }
+
+        public string VinculoEmpregaticio { get; set; }
+
+        [Required]
+        [Display(Name = "Matricula: ")]
+        public int Matricula { get; set; }
+
+        [Display(Name = "PeoPle Soft: ")]
+        public int IdPeopleSoft { get; set; }
+        
+        public string CentroDeCusto { get; set; }
+
+        public string Area { get; set; }
+
+        public string UnidadeDeNegocio { get; set; }
+
+        [Required]
+        [Display(Name = "Gestor: ")]
+        public string Gestor { get; set; }
+
+        [Required]
+        [Display(Name = "Matricula do Gestor: ")]
+        public int MatriculaGestor { get; set; }
+
+
+        public string LocalDeTrabalho { get; set; }
+
+
+        public string Cliente { get; set; } //S ou N
+
+        public string MotivoVaga { get; set; }
+        public string Efetivacao { get; set; }
+
+        public string VinculoAnterior { get; set; }
+
+
+        //Informacoes sobre Infra-Estrutura
+        public string AlteracaoLayout { get; set; }
+        public string NovaEstacao { get; set; }
+        public string NovoEquipamento { get; set; }
+        public string NovoRamal { get; set; }
+        public string NumeroRamal { get; set; }
+        public string TipoEquipamento { get; set; }
+
+        //Informacoes para E-mail
+        public string GrupoDeEmail { get; set; }
+        public string SugestaoDeEmail { get; set; }
+
+        //Mapeamento de Perfis
+        public string AcessoRede { get; set; }
+        public string AcessoSalesForce { get; set; }
+        public string AcessoAonAccess { get; set; }
+        public string AcessoGams { get; set; }
+        public string AcessoRelatoriosWeb { get; set; }
+        public string AcessoMicrosiga { get; set; }
+        public string AcessoCol { get; set; }
+        public string AcessoInfraClient { get; set; }
+        public string AcessoInfraManut { get; set; }
+        public string OutrosAcessos { get; set; }
+
+        public DateTime DataSolicitacao { get; set; }
+
+    }
+
+
+
+
+    //Controller Cadastro
     public class CadastroComputador
     {
         public int Id { get; set; }

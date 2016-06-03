@@ -150,6 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RecursosHumanosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +206,7 @@
     <Content Include="assets\images\navy.png" />
     <Content Include="assets\images\timer-piece.png" />
     <Content Include="assets\images\your-logo-here.png" />
+    <Content Include="assets\js\BuscaCep.js" />
     <Content Include="assets\js\charts.js" />
     <Content Include="assets\js\form-calendar.js" />
     <Content Include="assets\js\form-dropzone.js" />
@@ -3331,6 +3333,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\ITOne.pubxml" />
+    <Content Include="Views\RecursosHumanos\Admissao.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

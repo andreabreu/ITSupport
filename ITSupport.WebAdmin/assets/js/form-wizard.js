@@ -49,7 +49,7 @@ var FormWizard = function() {
 					minlength : 2,
 					required : true
 				},
-				email : {
+				EmailPessoal: {
 					required : true,
 					email : true
 				},

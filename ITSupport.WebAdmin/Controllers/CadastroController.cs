@@ -26,12 +26,12 @@ namespace ITSupport.WebAdmin.Controllers
             List<string> modelos = _repositorio.ListaSelect("Modelo");
             List<string> fabricantes = _repositorio.ListaSelect("Fabricante");
             List<string> escritorios = _repositorio.ListaSelect("Escritorio");
-
+            List<string> centroDeCusto = _repositorio.ListaSelect("CentroDeCusto");
 
             ViewBag.Modelos = modelos;
             ViewBag.Fabricantes = fabricantes;
             ViewBag.Escritorios = escritorios;
-
+            ViewBag.CentroDeCusto = centroDeCusto;
 
             ViewBag.Controller = "Cadastro";
             return View(_computador);
