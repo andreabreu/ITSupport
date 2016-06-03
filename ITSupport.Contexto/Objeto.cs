@@ -20,9 +20,9 @@ namespace ITSupport.Lib
         public string Dominio { get; set; }
 
         //Informacoes AD
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
-        public DateTime AccountExpirationDate { get; set; }
+        public string AccountExpirationDate { get; set; }
         //Um DateTime que especifica a data e hora em que a conta expira ou null se a conta nunca expira. 
         public string DistinguishedName { get; set; } //O DN para esta entidade ou null se não houver nenhum DN.
         public string Enabled { get; set; }

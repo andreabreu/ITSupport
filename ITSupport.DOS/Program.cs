@@ -11,23 +11,16 @@ namespace ITSupport.DOS
 {
     class Program
     {
+        readonly Usuario _usuario = new Usuario();
+
         static void Main(string[] args)
         {
-            //Network Net = new Network();
+           
 
-            //List<string> lista = Net.teste();
+        }
 
-            //foreach (var item in lista)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //string a = Console.ReadLine();
-
-            Repositorio repo = new Repositorio();
-
-            Usuario usuario = new Usuario();
-
+        public void RefreshUsersAD()
+        {
             PrincipalContext AD = new PrincipalContext(ContextType.Domain, "br.aon.bz");
             UserPrincipal u = new UserPrincipal(AD);
             PrincipalSearcher search = new PrincipalSearcher(u);
@@ -35,28 +28,60 @@ namespace ITSupport.DOS
 
             foreach (UserPrincipal result in search.FindAll())
             {
-                try
+                if (result.DisplayName != null)
                 {
                     if (result.DisplayName.Contains("'"))
                     {
                         string user = result.DisplayName;
-                        usuario.Nome = user.Replace("'", "''");
-                    }
-                } catch { }
-              
-                
-               
-                usuario.Username = result.SamAccountName;
-                usuario.Departamento = result.Description;
-                usuario.Email = result.EmailAddress;
-                usuario.Ramal = result.VoiceTelephoneNumber;
-                usuario.ScriptPath = result.ScriptPath;
-                try { usuario.AccountExpirationDate = (DateTime)result.AccountExpirationDate; } catch { }
-                usuario.DistinguishedName = result.DistinguishedName;
-                usuario.Enabled = (string)result.Enabled.ToString();
-                try { usuario.LastLogon = (DateTime)result.LastLogon; } catch { }
-                try { usuario.LastPasswordSet = (DateTime)result.LastPasswordSet; } catch { }
+                        StringBuilder builder = new StringBuilder();
+                        builder.Append(user).Replace(user, user.Replace("'", ""));
+                        _usuario.Nome = builder.ToString();
 
+                    }
+                    else
+                    {
+                        _usuario.Nome = result.DisplayName;
+                    }
+                }
+
+
+                _usuario.Username = result.SamAccountName;
+                _usuario.Departamento = result.Description;
+                _usuario.Email = result.EmailAddress;
+                _usuario.Ramal = result.VoiceTelephoneNumber;
+                _usuario.ScriptPath = result.ScriptPath;
+
+
+                if (result.AccountExpirationDate != null)
+                {
+                    var sqlFormattedDate = (DateTime)result.AccountExpirationDate;
+                    _usuario.AccountExpirationDate = sqlFormattedDate.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                }
+
+                //Remove Quotes
+                string DName = result.DistinguishedName;
+                StringBuilder builders = new StringBuilder();
+                builders.Append(DName).Replace(DName, DName.Replace("'", ""));
+                _usuario.DistinguishedName = builders.ToString();
+
+
+
+
+                _usuario.Enabled = (string)result.Enabled.ToString();
+
+                if (result.LastLogon != null)
+                {
+                    var sqlFormattedDate = (DateTime)result.LastLogon;
+                    _usuario.LastLogon = sqlFormattedDate.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                }
+
+
+
+                if (result.LastPasswordSet != null)
+                {
+                    var sqlFormattedDate = (DateTime)result.LastPasswordSet;
+                    _usuario.LastPasswordSet = sqlFormattedDate.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                }
 
 
                 if (result.GetUnderlyingObjectType() == typeof(DirectoryEntry))
@@ -64,17 +89,30 @@ namespace ITSupport.DOS
                     // Transition to directory entry to get other properties
                     using (var entry = (DirectoryEntry)result.GetUnderlyingObject())
                     {
-                        try { usuario.Superior = entry.Properties["manager"].Value.ToString(); } catch { }
-                        try { usuario.Matricula = entry.Properties["pager"].Value.ToString(); } catch { }
-                        try { usuario.Created = (DateTime)entry.Properties["Created"].Value; } catch { }
+                        if (entry.Properties["manager"].Value != null)
+                        {
+                            _usuario.Superior = entry.Properties["manager"].Value.ToString();
+                        }
+
+
+                        if (entry.Properties["pager"].Value != null)
+                        {
+                            _usuario.Matricula = entry.Properties["pager"].Value.ToString();
+                        }
+
+
+                        if (entry.Properties["whenCreated"].Value != null)
+                        {
+                            var sqlFormattedDate = (DateTime)entry.Properties["whenCreated"].Value;
+                            _usuario.Created = sqlFormattedDate.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                        }
                     }
+
                 }
 
-                repo.InserirUsuario(usuario);
 
-
+                _repositorio.InserirUsuario(_usuario);
             }
-
         }
     }
 }
