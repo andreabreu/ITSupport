@@ -8,19 +8,23 @@ namespace ITSupport.Lib
 {
     public class Contexto : IDisposable
     {
-        private readonly SqlConnection _minhaConexao;
+        private readonly SqlConnection minhaConexao;
 
         public Contexto()
         {
+            string srtConnectionLocal = @"Data Source =.\SQLEXPRESS; Initial Catalog = dbITSupport; Integrated Security = SSPI;";
+            
+
+            string strAon = "server=BRSP015884;Trusted_Connection=yes;database=dbITSupport; user id=andre_abreu_trp;password=Suporte01; connection timeout=5";
             try
             {
-                _minhaConexao = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnStrgHome"].ConnectionString);
-                _minhaConexao.Open();
+                minhaConexao = new SqlConnection(srtConnectionLocal);
+                minhaConexao.Open();
             }
             catch
             {
-                _minhaConexao = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnStrgAon"].ConnectionString);
-                _minhaConexao.Open();
+                minhaConexao = new SqlConnection(strAon);
+                minhaConexao.Open();
             }
           
         }
@@ -31,22 +35,22 @@ namespace ITSupport.Lib
             {
                 CommandText = strQuery,
                 CommandType = CommandType.Text,
-                Connection = _minhaConexao
+                Connection = minhaConexao
             };
             cmdComando.ExecuteNonQuery();
         }
 
         public SqlDataReader ExecutaComandoComRetorno(string strQuery)
         {
-            var cmdComando = new SqlCommand(strQuery, _minhaConexao);
+            var cmdComando = new SqlCommand(strQuery, minhaConexao);
             return cmdComando.ExecuteReader();
         }
         
 
         public void Dispose()
         {
-            if (_minhaConexao.State == ConnectionState.Open)
-                _minhaConexao.Close();
+            if (minhaConexao.State == ConnectionState.Open)
+                minhaConexao.Close();
         }
     }
 }

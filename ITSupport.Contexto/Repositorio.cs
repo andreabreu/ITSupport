@@ -147,52 +147,6 @@ namespace ITSupport.Lib
 
         }
 
-        public List<string> ListaUsers(string query)
-        {
-            List<string> lista = new List<string>();
-
-            query = "Select * from tblUsario";
-
-
-           
-
-
-            return lista;
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void Alterar(Computador Computador)
         {
